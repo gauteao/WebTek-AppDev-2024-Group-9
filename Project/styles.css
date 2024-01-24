@@ -1,0 +1,17 @@
+body {
+  background-color: thistle;
+}
+
+.main-title {
+  text-align: center;
+  color: aqua;
+  font-size: 100px;
+  margin-top: 5px;
+}
+
+.resturant-names {
+  text-align: center;
+  font-size: 60px;
+  font-family: 'Courier New', Courier, monospace;
+  color: aquamarine;
+}
