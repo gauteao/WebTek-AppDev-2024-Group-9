@@ -32,18 +32,18 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 70%;
+  width: 1000px;
 }
 
 .booking-form {
-  width: 500px;
+  width: 1000px;
   margin: 0 auto;
-  padding: 50px;
+  padding: 0px;
   background: #ffd0a7;
 }
 
 div.elem-group {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 div.elem-group.inlined {
