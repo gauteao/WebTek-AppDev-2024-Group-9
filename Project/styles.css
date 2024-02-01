@@ -12,7 +12,7 @@ body {
   float: left;
   color: rgb(0, 0, 0);
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 15px;
   text-decoration: none;
   font-size: 20px;
 }
@@ -27,7 +27,14 @@ body {
   color: rgb(0, 0, 0);
 }
 
-
+.logo {
+  float: left;
+  margin-left: 10px;
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 150px;
+}
 .main-image {
   display: block;
   margin-left: auto;
