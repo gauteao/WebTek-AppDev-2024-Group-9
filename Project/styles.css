@@ -227,8 +227,15 @@ button:hover {
   color: #f7c08a;
 }
 
+#page-container {
+  position: relative;
+  min-height: 100vh;
+
+}
+
 /* Footer */
 #main-footer {
+  bottom: 0;
   text-align: center;
   background: #444;
   color: #fff;
