@@ -30,37 +30,34 @@
   <div>
   <form class="booking-form" action="#" method="post">
     <div class="elem-group">
-      <label for="city-selection">Select A City</label>
       <select id="city-selection" name="city_preference" required>
-          <option value="">Choose a City from the List</option>
+          <option value="">Choose a City</option>
           <option value="oslo">Oslo</option>
           <option value="aalesund">Ålesund</option>
           <option value="add-more">Add more..</option>
       </select>
     </div>
     <div class="elem-group">
-      <label for="guest">Guests</label>
-      <input type="number" id="guests" name="total_guests" placeholder="2" min="1" required>
-    </div>
-    <div class="elem-group">
-      <label for="room-selection">Select A Room Type</label>
-      <select id="room-selection" name="room_preference" required>
-          <option value="">Choose a Room Type from the List</option>
-          <option value="classic">Classic</option>
-          <option value="single">Single</option>
-          <option value="superior">Superior</option>
-          <option value="add-more">Add more..</option>
-      </select>
-    </div>
-    <div class="elem-group inlined">
-      <label for="checkin-date">Check-in Date</label>
       <input type="date" id="checkin-date" name="checkin" required>
     </div>
-    <div class="elem-group inlined">
-      <label for="checkout-date">Check-out Date</label>
+    <div class="elem-group">
       <input type="date" id="checkout-date" name="checkout" required>
     </div>
-    <button type="submit">Search</button>
+    <div class="elem-group">
+      <select id="room-selection" name="room_preference" required>
+        <option value="">Choose a Room Type</option>
+        <option value="classic">Classic</option>
+        <option value="single">Single</option>
+        <option value="superior">Superior</option>
+        <option value="add-more">Add more..</option>
+      </select>
+    </div>
+    <div class="elem-group">
+      <input type="number" id="guests" name="total_guests" placeholder="2" min="1" required>
+    </div>
+    <div class="button-group">
+      <button type="submit">Search</button>
+    </div>
   </form>
 </div>
 <div>
