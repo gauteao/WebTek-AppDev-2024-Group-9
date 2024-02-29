@@ -120,17 +120,11 @@ p {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 1000px;
-  border-radius: 50px;
+  width: 1100px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.popular-showcase {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
-}
-
-.favorite-showcase {
+.popular-showcase, .favorite-showcase {
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
@@ -151,11 +145,13 @@ p {
 .booking-form {
   width: 1000px;
   margin: 0 auto;
-  padding: 0px;
-  background: #ffd0a7;
+  padding: 20px;
+  background: rgba(216, 216, 216, 0.55);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .register-form {
+  background: rgba(216, 216, 216, 0.55);
   padding: 20px;
   text-align: center;
   margin: auto;
@@ -163,10 +159,18 @@ p {
 }
 
 .contact-form {
+  background: rgba(216, 216, 216, 0.55);
   padding: 20px;
   text-align: center;
   margin: auto;
   max-width: fit-content;
+}
+
+.about-section {
+  padding: 50px 0;
+  text-align: center;
+  max-width: 1100px;
+  margin: auto;
 }
 
 div.elem-group {
