@@ -1,5 +1,38 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
 
-/.idea
-*.pb
-*.xml
-/.idea
+# IntelliJ IDEA specific
+.idea/
+
+# Ignore build files
+/target/
+
+# Ignore Maven related files
+/target/
+/pom.xml.tag
+/pom.xml.releaseBackup
+/pom.xml.versionsBackup
+/pom.xml.next
+/release.properties
+/dependency-reduced-pom.xml
+/buildNumber.properties
+/.mvn/timing.properties
+
+# Ignore Gradle files
+/.gradle/
+/build/
+
+# Ignore other unneeded files
+*.log
+*.properties
+*.class
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
