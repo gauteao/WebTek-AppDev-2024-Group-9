@@ -10,12 +10,31 @@ B
 D
 Project/contact.html,1\7\17bfd49f50f167d8770375295c2f0a9894198c57
 E
-Project/register.html,c/f/cf069ae06966c7f2e3ae2eddccc87bb98356917c
+Project/register.html,c\f\cf069ae06966c7f2e3ae2eddccc87bb98356917c
 B
 Project/styles.css,7/3/737340f1365fbb781282828cb06766ae5e9de13e
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+<<<<<<< Updated upstream
+=======
+B
+Project/login.html,0\3\0355b5f53f3d9e59aa066e86960e0c27ce05ce04
+A
+Project/script.js,c\6\c6d003a489c1b8e97697b891b46925d290abcc5a
+R
+"Project/Backend/StayFinder/pom.xml,6/4/645d25bbf565b658560abcdf9dec842638e272db
+†
+VProject/Backend/StayFinder/src/main/java/no/ntnu/stayfinder/StayFinderApplication.java,1\d\1d1c423479e062310a42611dbb787fa9693b9d1d
+K
+Project/Frontend/index.html,1\b\1be340856c80d25708aa84714fcd8a4631ca9ddb
+M
+Project/Frontend/contact.html,c\f\cfbce56e5ae75dbb7b90fedcf61fad4fb920f76c
+u
+EProject/Backend/StayFinder/src/main/java/no/ntnu/stayfinder/User.java,c\f\cf58b8a350964221c542540b18fce51857dfc5e1
+v
+FProject/Backend/StayFinder/src/main/java/no/ntnu/stayfinder/Hotel.java,5\9\594bbda6647c3ac3f1802ee0df2d1261ae061e1c
+>>>>>>> Stashed changes
 O
 Project/Frontend/src/index.html,6\7\67dbd9c3c99c8d616ae7ebc04c4cba5cde50dc96
 {
@@ -31,4 +50,9 @@ k
 n
 >Project/Backend/src/main/java/no/ntnu/stayfinder/Favorite.java,7\c\7cf0ae3be9fed29ada1f53c7d52403fee0a1ec24
 t
+<<<<<<< Updated upstream
+=======
+DProject/Backend/src/main/java/no/ntnu/stayfinder/UserReposotory.java,3\3\334723121996e14f17e7d799c62caeec491fcc72
+t
+>>>>>>> Stashed changes
 DProject/Backend/src/main/java/no/ntnu/stayfinder/UserRepository.java,8\f\8fe19455bb6fd1ea5764cbd651b383a01f13505d
