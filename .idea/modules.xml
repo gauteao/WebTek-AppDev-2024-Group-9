@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Project/Backend/StayFinder.iml" filepath="$PROJECT_DIR$/Project/Backend/StayFinder.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/WebTek-AppDev-2024-Group-9.iml" filepath="$PROJECT_DIR$/.idea/WebTek-AppDev-2024-Group-9.iml" />
     </modules>
   </component>

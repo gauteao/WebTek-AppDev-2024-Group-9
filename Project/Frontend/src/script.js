@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream
-=======
 console.log("script.js loaded");
 
->>>>>>> Stashed changes
 var dropdownContent = document.querySelector('.dropdown-content');
 var dropbtn = document.querySelector('.dropbtn');
 var timeout;
@@ -31,9 +28,6 @@ dropdownContent.addEventListener('mouseout', function(event) {
     }, 1000);
 });
 
-<<<<<<< Updated upstream
-console.log("script.js loaded");
-=======
 document.getElementById('booking-form').addEventListener('submit', function(event) {
     // Prevent the form from submitting normally
     event.preventDefault();
@@ -56,4 +50,3 @@ document.getElementById('booking-form').addEventListener('submit', function(even
     // Redirect to hotel-search.html with URL parameters
     window.location.href = "hotel-search.html?" + params.toString();
 });
->>>>>>> Stashed changes

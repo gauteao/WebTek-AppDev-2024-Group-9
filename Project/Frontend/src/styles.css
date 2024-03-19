@@ -5,17 +5,9 @@
     box-sizing: border-box;
 }
 
-html {
-
-}
-
 html, body {
     font-family: 'Nanum Gothic', sans-serif;
-<<<<<<< Updated upstream
-    background-color: #efefef;
-=======
-    background-color: #ffffff;
->>>>>>> Stashed changes
+    background-color: #ffffff; /* Changed to a lighter background color */
     line-height: 1.7em;
     margin-right: calc(100% - 100vw);
     overflow-x: hidden;
@@ -161,18 +153,10 @@ p {
     flex: 1 0 20%;
     margin: 1%;
     box-sizing: border-box;
-<<<<<<< Updated upstream
-    background: #f7c08a;
+    background: #ffffff;
     padding: 20px;
     border-radius: 4px;
-    box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.1);
-}
-
-=======
-    padding: 20px;
-    border-radius: 4px;
-    transition: transform 0.3s ease-in-out;
-    box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.05);
 }
 
 .hotel:hover {
@@ -189,8 +173,6 @@ p {
 
 }
 
-
->>>>>>> Stashed changes
 .about-section {
     padding: 50px 0;
     text-align: center;
@@ -424,5 +406,3 @@ a {
     width: 100%;
     position: absolute;
 }
-
-
