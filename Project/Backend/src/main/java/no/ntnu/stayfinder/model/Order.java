@@ -1,4 +1,4 @@
-package no.ntnu.stayfinder;
+package no.ntnu.stayfinder.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private int userId;
     private int hotelId;
     private String checkIn;
@@ -21,7 +21,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(int id, int userId, int hotelId, String checkIn, String checkOut, int guests, int price, int orderDate) {
+    public Order(Long id, int userId, int hotelId, String checkIn, String checkOut, int guests, int price, int orderDate) {
         this.id = id;
         this.userId = userId;
         this.hotelId = hotelId;
@@ -32,11 +32,11 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

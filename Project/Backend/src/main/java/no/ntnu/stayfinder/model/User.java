@@ -1,4 +1,4 @@
-package no.ntnu.stayfinder;
+package no.ntnu.stayfinder.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GenerationType;
@@ -9,14 +9,14 @@ import jakarta.persistence.Id;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String firstName;
     private String lastName;
     private String userName;
     private String email;
     private String password;
 
-    public User(int id, String firstName, String lastName, String userName, String email, String password) {
+    public User(Long id, String firstName, String lastName, String userName, String email, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -28,11 +28,11 @@ public class User {
     public User() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

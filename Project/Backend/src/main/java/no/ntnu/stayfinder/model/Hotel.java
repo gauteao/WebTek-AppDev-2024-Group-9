@@ -1,4 +1,4 @@
-package no.ntnu.stayfinder;
+package no.ntnu.stayfinder.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
     private String address;
     private String city;
@@ -22,7 +22,7 @@ public class Hotel {
     public Hotel() {
     }
 
-    public Hotel(int id, String name, String address, String city, String country, int maxGuests, int price, boolean isHidden) {
+    public Hotel(Long id, String name, String address, String city, String country, int maxGuests, int price, boolean isHidden) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -33,11 +33,11 @@ public class Hotel {
         this.isHidden = isHidden;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

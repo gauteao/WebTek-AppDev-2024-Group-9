@@ -1,4 +1,4 @@
-package no.ntnu.stayfinder;
+package no.ntnu.stayfinder.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,24 +9,24 @@ import jakarta.persistence.Id;
 public class Favorite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private int userId;
     private int hotelId;
 
     public Favorite() {
     }
 
-    public Favorite(int id, int userId, int hotelId) {
+    public Favorite(Long id, int userId, int hotelId) {
         this.id = id;
         this.userId = userId;
         this.hotelId = hotelId;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
