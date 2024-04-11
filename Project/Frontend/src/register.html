@@ -9,73 +9,71 @@
 </head>
 <body>
 <div class="wrapper">
-<header>
-    <nav id="navbar">
-        <div class="container">
-            <h1 class="logo"><a href="index.html">Stay Finder</a></h1>
+    <header>
+        <div id="navbar"></div>
+
+        <div id="mobile-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="hotels.html">Hotels</a></li>
+                <li><a class="current" href="hotels.html">Hotels</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Login</a>
-                    <div class="dropdown-content">
-                        <div class="login-wrapper">
-                            <div class="login-container">
-                                <form class="login-form" action="login_process.php" method="post">
-                                    <input type="text" name="username" placeholder="Username" required>
-                                    <input type="password" name="password" placeholder="Password" required>
-                                    <input type="submit" value="Login">
-                                    <input type="button" value="Register" onclick="window.location.href='register.html'">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                <li><a href="login.html">Login</a></li>
             </ul>
         </div>
-    </nav>
-</header>
-<div class="register-form">
-    <h1>Register your account</h1>
-    <form action="#">
-        <label for="first">First Name:</label>
-        <input type="text" id="first"
-               name="first"
-               placeholder="Enter your first name" required>
+    </header>
 
-        <label for="last">Last Name:</label>
-        <input type="text" id="last"
-               name="last"
-               placeholder="Enter your last name" required>
+    <div class="register-form">
+        <h1>Register your account</h1>
+        <form action="#">
+            <label for="first">First Name:</label>
+            <input type="text" id="first"
+                   name="first"
+                   placeholder="Enter your first name" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email"
-               name="email"
-               placeholder="Enter your email" required>
+            <label for="last">Last Name:</label>
+            <input type="text" id="last"
+                   name="last"
+                   placeholder="Enter your last name" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password"
-               name="password"
-               placeholder="Enter your password"
-               pattern=
-                       "^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$" required
-               title="Password must contain at least one number,  
-                   one alphabet, one symbol, and be at  
+            <label for="email">Email:</label>
+            <input type="email" id="email"
+                   name="email"
+                   placeholder="Enter your email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password"
+                   name="password"
+                   placeholder="Enter your password"
+                   pattern=
+                           "^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$" required
+                   title="Password must contain at least one number,
+                   one alphabet, one symbol, and be at
                    least 8 characters long">
 
-        <label for="repassword">Re-type Password:</label>
-        <input type="password" id="repassword"
-               name="repassword"
-               placeholder="Re-Enter your password" required>
-        <span id="pass"></span>
-        <button type="submit">Submit</button>
-    </form>
-</div>
+            <label for="repassword">Re-type Password:</label>
+            <input type="password" id="repassword"
+                   name="repassword"
+                   placeholder="Re-Enter your password" required>
+            <span id="pass"></span>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </div>
 <footer id="main-footer">
     <p>Stay Finder &copy; 2024, All Rights Reserved</p>
 </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var menuToggle = document.getElementById('menu-toggle');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function() {
+                var mobileNav = document.getElementById('mobile-nav');
+                mobileNav.classList.toggle('active');
+            });
+        }
+    });
+</script>
+<script src="script.js"></script>
 </body>
 </html>

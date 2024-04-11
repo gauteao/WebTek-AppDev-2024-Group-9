@@ -10,7 +10,7 @@ function getUrlParams() {
 function displayFormData() {
     var params = getUrlParams();
 
-    var cityPreference = params.get('city_preference');
+    var cityPreference = params.get('destination_preference');
     var checkinDate = params.get('checkin');
     var checkoutDate = params.get('checkout');
     var roomPreference = params.get('room_preference');
@@ -21,7 +21,6 @@ function displayFormData() {
                 <p>City: ${cityPreference}</p>
                 <p>Check-In Date: ${checkinDate}</p>
                 <p>Check-Out Date: ${checkoutDate}</p>
-                <p>Room Preference: ${roomPreference}</p>
                 <p>Total Guests: ${totalGuests}</p>
             `;
 }

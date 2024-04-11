@@ -4,56 +4,64 @@
     <meta charset="UTF-8">
     <title>Hotel name</title>
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
-<div class="wrapper">
-<header>
-  <nav id="navbar">
-    <div class="container">
-      <h1 class="logo"><a href="index.html">Stay Finder</a></h1>
-      <ul>
-        <li><a class="current" href="index.html">Home</a></li>
-        <li><a href="hotels.html">Hotels</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropbtn">Login</a>
-          <div class="dropdown-content">
-            <div class="login-wrapper">
-              <div class="login-container">
-                <form class="login-form" action="login_process.php" method="post">
-                  <input type="text" name="username" placeholder="Username" required>
-                  <input type="password" name="password" placeholder="Password" required>
-                  <input type="submit" value="Login">
-                  <input type="button" value="Register" onclick="window.location.href='register.html'">
-                </form>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</header>
 
-<div class="hotel-page-container">
-    <div class="hotel-page
-    <h1>Hotel name</h1>
-    <img src="images/hotel1.avif" alt="Hotel 1">
-    <p>Oslo, Norway</p>
-    <p>4.5/5</p>
-    <p>Hotel description</p>
-    <p>Hotel facilities</p>
-    <p>Hotel reviews</p>
-    <p>Hotel location</p>
-    <p>Hotel contact</p>
-    <p>Hotel price</p>
-    <p>Hotel availability</p>
-    <button type="submit">Book now</button>
-</div>
-</div>
+<header>
+    <div id="navbar"></div>
+</header>
+    <div class="wrapper">
+        <main>
+            <div class="hotel-page-info">
+                <h2 class="hotel-page-name">Hotel Name</h2>
+                <p class="lead">Luxury Accommodation in the Heart of the City</p>
+                <div class="about-section">
+                    <p>Welcome to our hotel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sodales est sit amet justo aliquet, at faucibus mauris bibendum. Vestibulum condimentum turpis nec massa feugiat, eget ullamcorper erat convallis.</p>
+                    <p>Our hotel offers various amenities including:</p>
+                    <ul>
+                        <li>Swimming pool</li>
+                        <li>Spa and wellness center</li>
+                        <li>Fitness center</li>
+                        <li>Restaurant and bar</li>
+                        <li>Free Wi-Fi</li>
+                    </ul>
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <img class="feature-symbol" src="images/swimmer.png" alt="Swimming Pool Icon">
+                        <p>Swimming Pool</p>
+                    </div>
+                    <div class="feature">
+                        <img class="feature-symbol" src="images/swimmer.png" alt="Swimming Pool Icon">
+                        <p>Spa & Wellness Center</p>
+                    </div>
+                    <div class="feature">
+                        <img class="feature-symbol" src="images/swimmer.png" alt="Swimming Pool Icon">
+                        <p>Fitness Center</p>
+                    </div>
+                    <div class="feature">
+                        <img class="feature-symbol" src="images/swimmer.png" alt="Swimming Pool Icon">
+                        <p>Restaurant & Bar</p>
+                    </div>
+                    <div class="feature">
+                        <img class="feature-symbol" src="images/swimmer.png" alt="Swimming Pool Icon">
+                        <p>Free Wi-Fi</p>
+                    </div>
+                </div>
+                <div class="image-gallery">
+                    <img src="images/hotel1.avif" alt="Hotel">
+                    <img src="images/hotel1.avif" alt="Hotel">
+                    <img src="images/hotel1.avif" alt="Hotel">
+                </div>
+                <div class="hotel-price">
+                    <p>$100 per night</p>
+                <button class="btn-btn-primary">Book Now</button>
+            </div>
+        </main>
+    </div>
 <footer id="main-footer">
     <p>Stay Finder &copy; 2024, All Rights Reserved</p>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>

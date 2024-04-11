@@ -136,6 +136,66 @@ p {
     color: #f7c08a;
 }
 
+#hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+#hamburger-menu div {
+    width: 2rem;
+    height: 0.25rem;
+    background: #333;
+}
+
+#mobile-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    transition: transform 0.3s ease-in-out;
+}
+
+#mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#mobile-nav ul li {
+    margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+    #hamburger-menu {
+        display: flex;
+    }
+}
+
+#mobile-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    transition: transform 0.3s ease-in-out;
+}
+
+#mobile-nav.active {
+    transform: translateX(0%);
+}
+
 .main-image {
     display: block;
     margin: 0 auto;
@@ -172,7 +232,7 @@ p {
 }
 
 .hotel:hover {
-    transform: scale(1.06);
+    transform: scale(1.03);
     cursor: pointer;
 }
 
@@ -181,8 +241,81 @@ p {
     border-radius: 4px;
 }
 
-.hotel-info {
+.hotel-page-info {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+.hotel-page-name {
+    text-align: center;
+    margin: 0;
+    color: #333;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.feature-symbol {
+    font-size: 0.3em;
+    color: #f7c08a;
+    max-height: 70px;
+}
+
+.image-gallery {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.image-gallery img {
+    max-width: 30%;
+    height: auto;
+    margin: 10px;
+}
+
+#results {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.hotel-image {
+    width: 20%;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.hotel-result {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-result:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.hotel-search-image {
+    width: 50%;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.hotel-details {
+    flex-grow: 1;
 }
 
 .about-section {
@@ -196,6 +329,12 @@ p {
 div.elem-group {
     flex: 1;
     margin: 10px;
+}
+
+div.elem-group-guests {
+    flex: 1;
+    margin: 10px;
+    max-width: 100px;
 }
 
 .button-group {
@@ -261,6 +400,38 @@ button:hover {
     border-radius: 0 0 4px 4px;
     box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.1);
 }
+
+/* CSS for wider viewport */
+#booking-form {
+    display: flex;
+    flex-direction: row; /* Aligns the form elements in a line */
+    gap: 10px;
+}
+
+/* CSS for smaller viewport */
+@media screen and (max-width: 600px) {
+    #booking-form {
+        flex-direction: column; /* Stacks the form elements vertically */
+    }
+    div.elem-group-guests {
+        max-width: 100%;
+    }
+    .button-group {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+#date-range:hover {
+    cursor: default;
+}
+
+input::placeholder {
+    color: #333; /* Change to your desired color */
+    font-weight: normal; /* Change to your desired font weight */
+    opacity: 1; /* Firefox reduces the opacity of placeholders by default, so we need to override that */
+}
+
 .register-form,
 .contact-form {
     padding: 20px;
@@ -394,12 +565,54 @@ a {
     display: block;
 }
 
-
-
 #main-footer {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 20px;
+    z-index : 9999;
 }
+
+/* Media Query for Small Screens */
+@media screen and (max-width: 700px) {
+
+    #navbar ul {
+        display: none; /* Hide the nav links */
+    }
+
+    #navbar ul.active {
+        display: block; /* Display the nav links when menu is active */
+    }
+
+    #navbar li {
+        display: block;
+        margin-bottom: 10px; /* Add spacing between each nav item */
+    }
+
+    .menu-toggle {
+        display: block; /* Display the hamburger menu icon */
+    }
+
+    /* Adjust hamburger menu icon style */
+    .menu-toggle {
+        position: absolute;
+        top: 8px;
+        right: 20px;
+        font-size: 40px;
+        color: #fff;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 999; /* Ensure it's on top of other elements */
+    }
+}
+
+/* Media Query for Large Screens */
+@media screen and (min-width: 700px) {
+    .menu-toggle {
+        display: none; /* Hide the hamburger menu icon for large screens */
+    }
+}
+
+
 

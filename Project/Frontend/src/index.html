@@ -10,32 +10,7 @@
 <body>
 <div class="wrapper">
 <header>
-    <nav id="navbar">
-        <div class="container">
-            <h1 class="logo"><a href="index.html">Stay Finder</a></h1>
-            <ul>
-                <li><a class="current" href="index.html">Home</a></li>
-                <li><a href="hotels.html">Hotels</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Login</a>
-                    <div class="dropdown-content">
-                        <div class="login-wrapper">
-                            <div class="login-container">
-                                <form class="login-form" action="login_process.php" method="post">
-                                    <input type="text" name="username" placeholder="Username" required>
-                                    <input type="password" name="password" placeholder="Password" required>
-                                    <input type="submit" value="Login">
-                                    <input type="button" value="Register" onclick="window.location.href='register.html'">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div id="navbar"></div>
 </header>
 <div>
     <img src="images/main-image.png" alt="Discover your next stay" class="main-image">
@@ -44,30 +19,18 @@
     <div>
         <form id="booking-form" class="booking-form" action="hotel-search.html" method="post">
             <div class="elem-group">
-                <select id="city-selection" name="city_preference" required>
-                    <option value="">Choose a City</option>
+                <select id="destination-selection" name="destination_preference" required>
+                    <option value="">Choose a Destination</option>
                     <option value="oslo">Oslo</option>
                     <option value="aalesund">Ålesund</option>
                     <option value="add-more">Add more..</option>
                 </select>
             </div>
             <div class="elem-group">
-                <input type="date" id="checkin-date" name="checkin" required>
+                <input id="date-range" name="date_range" placeholder="Check-in and Check-out" required>
             </div>
-            <div class="elem-group">
-                <input type="date" id="checkout-date" name="checkout" required>
-            </div>
-            <div class="elem-group">
-                <select id="room-selection" name="room_preference" required>
-                    <option value="">Choose a Room Type</option>
-                    <option value="classic">Classic</option>
-                    <option value="single">Single</option>
-                    <option value="superior">Superior</option>
-                    <option value="add-more">Add more..</option>
-                </select>
-            </div>
-            <div class="elem-group">
-                <input type="number" id="guests" name="total_guests" placeholder="2" min="1" required>
+            <div class="elem-group-guests">
+                <input type="number" id="guests" name="total_guests" placeholder="Guests" min="1" required>
             </div>
             <div class="button-group">
                 <button type="submit">Search</button>
@@ -128,5 +91,8 @@
     </footer>
 </div>
 <script src="script.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.css"/>
+<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
 </body>
 </html>
