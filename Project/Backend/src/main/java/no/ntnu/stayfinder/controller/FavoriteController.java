@@ -1,7 +1,12 @@
 package no.ntnu.stayfinder.controller;
 
+
+import no.ntnu.stayfinder.model.Favorite;
+import no.ntnu.stayfinder.service.FavoriteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/favorites")
@@ -20,6 +25,18 @@ public class FavoriteController {
         return favoriteService.getFavorites();
     }
 
-    @PostMapping
+    @GetMapping(path = "{favoriteId}")
+    public Favorite getFavoriteById(@PathVariable("favoriteId") Long id) {
+        return favoriteService.getFavorite(id);
+    }
 
+    @PostMapping
+    public void registerNewFavorite(@RequestBody Favorite favorite) {
+        favoriteService.addNewFavorite(favorite);
+    }
+
+    @DeleteMapping(path = "{favoriteId}")
+    public void deleteFavorite(@PathVariable("favoriteId") Long id) {
+        favoriteService.deleteFavorite(id);
+    }
 }

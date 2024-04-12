@@ -15,48 +15,44 @@
     <br>
     <h4>Discover all the hotels</h4>
     <div class="hotel-container">
-        <div class="hotel">
-            <img src="images/hotel1.avif" alt="Hotel 1">
-            <h3>Hotel 1</h3>
-            <p>Oslo, Norway</p>
-            <p>4.5/5</p>
-        </div>
-        <div class="hotel">
-            <img src="images/hotel1.avif" alt="Hotel 2">
-            <h3>Hotel 2</h3>
-            <p>Ålesund, Norway</p>
-            <p>4.0/5</p>
-        </div>
-        <div class="hotel">
-            <img src="images/hotel1.avif" alt="Hotel 3">
-            <h3>Hotel 3</h3>
-            <p>Bergen, Norway</p>
-            <p>4.2/5</p>
-        </div>
-        <div class="hotel">
-            <img src="images/hotel1.avif" alt="Hotel 4">
-            <h3>Hotel 4</h3>
-            <p>Trondheim, Norway</p>
-            <p>4.3/5</p>
-        </div>
-        <div class="hotel">
-            <img src="images/hotel1.avif" alt="Hotel 5">
-            <h3>Hotel 5</h3>
-            <p>Oslo, Norway</p>
-            <p>4.8/5</p>
-            </div>
-        <div class="hotel">
-            <img src="images/hotel1.avif" alt="Hotel 6">
-            <h3>Hotel 6</h3>
-            <p>Stavanger, Norway</p>
-            <p>4.5/5</p>
-        </div>
+
     </div>
 </div>
     <footer id="main-footer">
         <p>Stay Finder &copy; 2024, All Rights Reserved</p>
     </footer>
 <script src="script.js"></script>
+<script>
+    fetch('http://localhost:8080/hotels')
+        .then(response => response.json())
+        .then(hotels => {
+            const hotelContainer = document.querySelector('.hotel-container');
+            hotels.forEach((hotel, index) => {
+                const hotelDiv = document.createElement('div');
+                hotelDiv.className = 'hotel';
+
+                const img = document.createElement('img');
+                img.src = `images/hotel${index + 1}.avif`; // assuming you have hotel1.avif, hotel2.avif, etc. in your images directory
+                img.alt = hotel.name;
+                img.className = 'hotel-image';
+
+                const h3 = document.createElement('h3');
+                h3.textContent = hotel.name;
+
+                const locationP = document.createElement('p');
+                locationP.textContent = `${hotel.city}, ${hotel.country}`; // assuming your hotel object has properties 'city' and 'country
+
+                const priceP = document.createElement('p');
+                priceP.textContent = `Starting at $${hotel.price} per night`;
+
+                hotelDiv.append(img, h3, locationP,priceP);
+                hotelContainer.appendChild(hotelDiv);
+            });
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+</script>
 
 </body>
 

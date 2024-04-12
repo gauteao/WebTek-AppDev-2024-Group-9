@@ -16,26 +16,33 @@ public class HotelController {
 
     @Autowired
     public HotelController(HotelService hotelService) {
+
         this.hotelService = hotelService;
     }
 
     @GetMapping
     public List<Hotel> getHotels() {
+
         return hotelService.getHotels();
     }
 
     @GetMapping(path = "{hotelId}")
     public Hotel getHotelById(@PathVariable("hotelId") Long id) {
+
         return hotelService.getHotel(id);
     }
 
     @PostMapping
     public void registerNewHotel(@RequestBody Hotel hotel) {
+
         hotelService.addNewHotel(hotel);
     }
 
     @DeleteMapping(path = "{hotelId}")
     public void deleteHotel(@PathVariable("hotelId") Long id) {
+
         hotelService.deleteHotel(id);
     }
+
+
 }

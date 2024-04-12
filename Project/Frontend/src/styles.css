@@ -289,9 +289,8 @@ p {
 }
 
 .hotel-image {
-    width: 20%;
+    height: 60%;
     border-radius: 4px;
-    object-fit: cover;
 }
 
 .hotel-result {
