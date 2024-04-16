@@ -8,7 +8,7 @@
 /dataSources.local.xml
 
 # IntelliJ IDEA specific
-.idea/
+.idea
 
 # Ignore build files
 /target/
