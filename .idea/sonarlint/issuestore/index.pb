@@ -35,9 +35,3 @@ N
 Project/Frontend/src/script.js,7/d/7df9de4a90bddf1920522ca898db113be4e4856e
 O
 Project/Frontend/src/styles.css,a/5/a5c4a0acd2e97c6f4a1860cfc7cd4794a01f1133
-J
-Project/Backend/.gitignore,3/4/34ef65379d92090662a09841e5359bdd368a9a1d
-S
-#.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
-]
--.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e
