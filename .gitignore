@@ -31,6 +31,7 @@
 # Ignore other unneeded files
 *.log
 *.properties
+!/src/main/resources/application.properties
 *.class
 
 # Ignore OS generated files
