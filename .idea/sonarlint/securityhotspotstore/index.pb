@@ -1,0 +1,43 @@
+
+t
+DProject/Backend/src/main/java/no/ntnu/stayfinder/UserRepository.java,8/f/8fe19455bb6fd1ea5764cbd651b383a01f13505d
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+j
+:Project/Backend/src/main/java/no/ntnu/stayfinder/Role.java,7/7/7760714b266b6f7a77d79f5ea739feb4bd1bc8a8
+k
+;Project/Backend/src/main/java/no/ntnu/stayfinder/Order.java,8/d/8d0e591a6b0b5401ed85bfd7eab38305bd6531c3
+k
+;Project/Backend/src/main/java/no/ntnu/stayfinder/Hotel.java,e/c/ecb92b53acb736faa3a0c20e3c907ae08b0a6805
+n
+>Project/Backend/src/main/java/no/ntnu/stayfinder/Favorite.java,7/c/7cf0ae3be9fed29ada1f53c7d52403fee0a1ec24
+j
+:Project/Backend/src/main/java/no/ntnu/stayfinder/User.java,a/7/a74f5b0350f424707928bac73cae0054d6103838
+O
+Project/Frontend/src/index.html,6/7/67dbd9c3c99c8d616ae7ebc04c4cba5cde50dc96
+O
+Project/Frontend/src/about.html,9/b/9b42674adab27f11acdaa5b82c5d29cd72b177ee
+Q
+!Project/Frontend/src/contact.html,b/f/bfceab4b3c34a67add748060ec94cdcac0fcd4b6
+T
+$Project/Frontend/src/hotel-page.html,4/1/4122a9c507b7863348d790c049f5472212d79bc1
+V
+&Project/Frontend/src/hotel-search.html,d/8/d8ecf4f074deb35ccc45c1414da4e45630c15e14
+T
+$Project/Frontend/src/hotel-search.js,e/9/e928d3cc1eae6a8bd75651053467eee21c3de7fa
+P
+ Project/Frontend/src/hotels.html,b/0/b0a2a73c9a67832d0920634129e2818ca9dd8f37
+O
+Project/Frontend/src/login.html,7/a/7a62f6de91f601dc48d87102b5c934b7d0fc4b2e
+R
+"Project/Frontend/src/register.html,d/3/d37cbc5c725b6049dd52eeebc4c4392a24fd832c
+N
+Project/Frontend/src/script.js,7/d/7df9de4a90bddf1920522ca898db113be4e4856e
+O
+Project/Frontend/src/styles.css,a/5/a5c4a0acd2e97c6f4a1860cfc7cd4794a01f1133
+J
+Project/Backend/.gitignore,3/4/34ef65379d92090662a09841e5359bdd368a9a1d
+S
+#.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e

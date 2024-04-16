@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+<<<<<<< Updated upstream
+    <list default="true" id="47ce2467-af10-4ea0-be45-378cad53d93b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+=======
+    <list default="true" id="fc41e138-4271-4980-8005-84620dd3890a" name="Changes" comment="updated html and css">
+      <change afterPath="$PROJECT_DIR$/Project/Backend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Backend/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Backend/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Backend/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Backend/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Backend/src/main/java/no/ntnu/stayfinder/Favorite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Backend/src/main/java/no/ntnu/stayfinder/Hotel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Backend/src/main/java/no/ntnu/stayfinder/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Backend/src/main/java/no/ntnu/stayfinder/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Backend/src/main/java/no/ntnu/stayfinder/StayFinderApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Backend/src/main/java/no/ntnu/stayfinder/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Backend/src/main/java/no/ntnu/stayfinder/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Backend/src/test/java/no/ntnu/stayfinder/StayFinderApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Frontend/src/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Frontend/src/contact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Frontend/src/hotel-page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Frontend/src/hotel-search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Frontend/src/hotel-search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Frontend/src/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Frontend/src/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/WebTek-AppDev-2024-Group-9.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WebTek-AppDev-2024-Group-9.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/contact.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/hotels.html" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Frontend/src/hotels.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Frontend/src/images/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/images/main-image.png" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Frontend/src/images/main-image.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Frontend/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Frontend/src/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Frontend/src/styles.css" afterDir="false" />
+>>>>>>> Stashed changes
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+<<<<<<< Updated upstream
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2ciK8oPXr3o5jLrMm0loBsm6NZc" />
+=======
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2d22szxhHuGayRXZGVZb1AOoBIC" />
+>>>>>>> Stashed changes
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+<<<<<<< Updated upstream
+=======
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
+>>>>>>> Stashed changes
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+<<<<<<< Updated upstream
+=======
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
+>>>>>>> Stashed changes
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="StayFinderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="StayFinder" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="no.ntnu.stayfinder.StayFinderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-3183f394aec4-74f1fbcb" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fc41e138-4271-4980-8005-84620dd3890a" name="Changes" comment="" />
+      <created>1709192064064</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+<<<<<<< Updated upstream
+      <updated>1708588803012</updated>
+      <workItem from="1708588808029" duration="1296000" />
+      <workItem from="1709124592884" duration="224000" />
+      <workItem from="1710518245973" duration="73000" />
+=======
+      <updated>1709192064064</updated>
+      <workItem from="1709192065646" duration="21000" />
+      <workItem from="1709192090899" duration="39000" />
+      <workItem from="1709192142250" duration="1175000" />
+      <workItem from="1709196349356" duration="689000" />
+      <workItem from="1709198596679" duration="7075000" />
+      <workItem from="1709559052042" duration="54000" />
+      <workItem from="1709559123484" duration="10475000" />
+      <workItem from="1709635268052" duration="605000" />
+      <workItem from="1710165117914" duration="1148000" />
+      <workItem from="1710166296052" duration="5333000" />
+      <workItem from="1710836559910" duration="81000" />
+      <workItem from="1710836675761" duration="603000" />
+>>>>>>> Stashed changes
+    </task>
+    <task id="LOCAL-00001" summary="updated html and css">
+      <option name="closed" value="true" />
+      <created>1709567457465</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709567457465</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+<<<<<<< Updated upstream
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+=======
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="updated html and css" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated html and css" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+>>>>>>> Stashed changes
+  </component>
+</project>
