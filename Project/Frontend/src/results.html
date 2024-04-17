@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div id="navbar"></div>
+    </header>
+    <h1>Hotel Results</h1>
+    <div class="hotel-container" id="hotel-container"></div>
+</div>
+<footer id="main-footer">
+    <p>Stay Finder &copy; 2024, All Rights Reserved</p>
+</footer>
+<script src="script.js"></script>
+<script>
+    // Retrieve hotels data from sessionStorage
+    var hotelsData = sessionStorage.getItem('hotels');
+    var hotels = JSON.parse(hotelsData);
+
+    // Get the hotel container
+    var hotelContainer = document.getElementById('hotel-container');
+
+    // Clear previous results
+    hotelContainer.innerHTML = '';
+
+    // Display hotels
+    hotels.forEach(function (hotel, index) {
+        // Create hotel element
+        var hotelElement = document.createElement('div');
+        hotelElement.classList.add('hotel');
+
+        // Create image element
+        var img = document.createElement('img');
+        img.src = `images/hotel${index + 1}.avif`; // Adjust the image source as needed
+        img.alt = hotel.name;
+        img.classList.add('hotel-image');
+
+        // Create heading element
+        var h3 = document.createElement('h3');
+        h3.textContent = hotel.name;
+
+        // Create location paragraph element
+        var locationP = document.createElement('p');
+        locationP.textContent = `${hotel.city}, ${hotel.country}`;
+
+        // Create price paragraph element
+        var priceP = document.createElement('p');
+        priceP.textContent = `Starting at $${hotel.price} per night`;
+
+        // Append elements to hotel element
+        hotelElement.appendChild(img);
+        hotelElement.appendChild(h3);
+        hotelElement.appendChild(locationP);
+        hotelElement.appendChild(priceP);
+
+        // Append hotel element to hotel container
+        hotelContainer.appendChild(hotelElement);
+    });
+</script>
+</body>
+</html>
