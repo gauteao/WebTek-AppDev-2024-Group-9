@@ -1,3 +1,4 @@
+/*
 window.onload = function () {
 
     // Fetch navbar.html and insert its content into the navbar div
@@ -92,4 +93,4 @@ window.onload = function () {
 
         xhr.send();
     });
-};
+};*/

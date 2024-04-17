@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.css"/>
     <title>Hotels</title>
 </head>
 <body>
@@ -17,13 +18,15 @@
 </div>
 <div id="page-container">
     <div>
-        <form id="booking-form" class="booking-form" action="hotel-search.html" method="post">
+        <form id="booking-form" class="booking-form" method="post">
             <div class="elem-group">
                 <select id="destination-selection" name="destination_preference" required>
-                    <option value="">Choose a Destination</option>
+                    <option value="" disabled selected>Select a destination</option>
                     <option value="oslo">Oslo</option>
-                    <option value="aalesund">Ålesund</option>
-                    <option value="add-more">Add more..</option>
+                    <option value="ålesund">Ålesund</option>
+                    <option value="bergen">Bergen</option>
+                    <option value="trondheim">Trondheim</option>
+                    <option value="tromsø">Tromsø</option>
                 </select>
             </div>
             <div class="elem-group">
@@ -37,6 +40,10 @@
             </div>
         </form>
     </div>
+    <div>
+        <div class="hotel-container"></div>
+    </div>
+
     <div>
         <h4>Popular Hotels</h4>
     </div>
@@ -88,9 +95,7 @@
         <p>Stay Finder &copy; 2024, All Rights Reserved</p>
     </footer>
 </div>
-<script src="script.js"></script>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.css"/>
 <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

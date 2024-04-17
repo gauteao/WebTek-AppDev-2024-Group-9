@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.css"/>
   <title>Hotels</title>
 </head>
 <body>
@@ -21,39 +22,83 @@
     <footer id="main-footer">
         <p>Stay Finder &copy; 2024, All Rights Reserved</p>
     </footer>
-<script src="script.js"></script>
 <script>
-    fetch('http://localhost:8080/hotels')
-        .then(response => response.json())
-        .then(hotels => {
-            const hotelContainer = document.querySelector('.hotel-container');
-            hotels.forEach((hotel, index) => {
-                const hotelDiv = document.createElement('div');
-                hotelDiv.className = 'hotel';
-
-                const img = document.createElement('img');
-                img.src = `images/hotel${index + 1}.avif`; // assuming you have hotel1.avif, hotel2.avif, etc. in your images directory
-                img.alt = hotel.name;
-                img.className = 'hotel-image';
-
-                const h3 = document.createElement('h3');
-                h3.textContent = hotel.name;
-
-                const locationP = document.createElement('p');
-                locationP.textContent = `${hotel.city}, ${hotel.country}`; // assuming your hotel object has properties 'city' and 'country
-
-                const priceP = document.createElement('p');
-                priceP.textContent = `Starting at $${hotel.price} per night`;
-
-                hotelDiv.append(img, h3, locationP,priceP);
-                hotelContainer.appendChild(hotelDiv);
+    window.onload = function() {
+        // Fetch navbar.html and insert its content into the navbar div
+        fetch('./navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
             });
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+        // Declare modal variable outside the fetch callback
+        var modal = document.getElementById("myModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // When the user confirms the purchase, close the modal and alert a message
+        document.getElementById("confirmPurchase").onclick = function() {
+            modal.style.display = "none";
+            alert("Purchase confirmed!");
+        }
+
+        fetch('http://localhost:8080/hotels')
+            .then(response => response.json())
+            .then(hotels => {
+                const hotelContainer = document.querySelector('.hotel-container');
+                hotels.forEach((hotel, index) => {
+                    const hotelDiv = document.createElement('div');
+                    hotelDiv.className = 'hotel';
+
+                    const img = document.createElement('img');
+                    img.src = `images/hotel${index + 1}.avif`; // assuming you have hotel1.avif, hotel2.avif, etc. in your images directory
+                    img.alt = hotel.name;
+                    img.className = 'hotel-image';
+
+                    const h3 = document.createElement('h3');
+                    h3.textContent = hotel.name;
+
+                    const locationP = document.createElement('p');
+                    locationP.textContent = `${hotel.city}, ${hotel.country}`; // assuming your hotel object has properties 'city' and 'country
+
+                    const priceP = document.createElement('p');
+                    priceP.textContent = `Starting at $${hotel.price} per night`;
+
+                    hotelDiv.append(img, h3, locationP, priceP);
+                    hotelContainer.appendChild(hotelDiv);
+
+                    // Add click event listener to each hotel div
+                    hotelDiv.addEventListener('click', function() {
+                        modal.style.display = "block"; // Display the modal when clicked
+                    });
+                });
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
 </script>
 
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Are you sure you want to purchase this hotel?</p>
+        <button id="confirmPurchase">Confirm</button>
+    </div>
+</div>
 </body>
 
 </html>

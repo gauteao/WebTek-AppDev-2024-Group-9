@@ -1,29 +1,37 @@
-console.log("hotel-search.js loaded");
+console.log('Hotel Search Page');
 
-// Function to parse URL parameters
-function getUrlParams() {
-    var params = new URLSearchParams(window.location.search);
-    return params;
-}
+document.addEventListener('DOMContentLoaded', function () {
+    const hotelResultsDiv = document.getElementById('hotel-results');
 
-// Function to display form data
-function displayFormData() {
-    var params = getUrlParams();
+    // Function to fetch available hotels based on search criteria
+    function fetchAvailableHotels(checkIn, checkOut, city) {
+        const url = `http://localhost:8080/hotels/search?checkIn=${checkIn}&checkOut=${checkOut}&city=${city}`;
 
-    var cityPreference = params.get('destination_preference');
-    var checkinDate = params.get('checkin');
-    var checkoutDate = params.get('checkout');
-    var roomPreference = params.get('room_preference');
-    var totalGuests = params.get('total_guests');
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                // Clear previous results
+                hotelResultsDiv.innerHTML = '';
 
-    var resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = `
-                <p>City: ${cityPreference}</p>
-                <p>Check-In Date: ${checkinDate}</p>
-                <p>Check-Out Date: ${checkoutDate}</p>
-                <p>Total Guests: ${totalGuests}</p>
-            `;
-}
+                // Display hotel results
+                data.forEach(hotel => {
+                    const hotelElement = document.createElement('div');
+                    hotelElement.classList.add('hotel');
+                    hotelElement.innerHTML = `
+                        <h2>${hotel.name}</h2>
+                        <p>Address: ${hotel.address}, ${hotel.city}, ${hotel.country}</p>
+                        <p>Max Guests: ${hotel.maxGuests}</p>
+                        <p>Price: ${hotel.price}</p>
+                    `;
+                    hotelResultsDiv.appendChild(hotelElement);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
 
-// Call the displayFormData function when the page loads
-window.onload = displayFormData;
+    // Example usage:
+    const checkInDate = '2024-04-17';
+    const checkOutDate = '2024-04-19';
+    const city = 'YourCityName'; // Replace with actual city name
+    fetchAvailableHotels(checkInDate, checkOutDate, city);
+});

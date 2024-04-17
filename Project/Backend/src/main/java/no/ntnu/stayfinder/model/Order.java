@@ -2,6 +2,8 @@ package no.ntnu.stayfinder.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -10,8 +12,8 @@ public class Order {
     private Long id;
     private int userId;
     private int hotelId;
-    private String checkIn;
-    private String checkOut;
+    private LocalDate checkIn;
+    private LocalDate checkOut;
     private int guests;
     private int price;
     private int orderDate;
@@ -19,7 +21,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(Long id, int userId, int hotelId, String checkIn, String checkOut, int guests, int price, int orderDate) {
+    public Order(Long id, int userId, int hotelId, LocalDate checkIn, LocalDate checkOut, int guests, int price, int orderDate) {
         this.id = id;
         this.userId = userId;
         this.hotelId = hotelId;
@@ -28,6 +30,20 @@ public class Order {
         this.guests = guests;
         this.price = price;
         this.orderDate = orderDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", hotelId=" + hotelId +
+                ", checkIn='" + checkIn + '\'' +
+                ", checkOut='" + checkOut + '\'' +
+                ", guests=" + guests +
+                ", price=" + price +
+                ", orderDate=" + orderDate +
+                '}';
     }
 
     public Long getId() {
@@ -54,19 +70,19 @@ public class Order {
         this.hotelId = hotelId;
     }
 
-    public String getCheckIn() {
+    public LocalDate getCheckIn() {
         return checkIn;
     }
 
-    public void setCheckIn(String checkIn) {
+    public void setCheckIn(LocalDate checkIn) {
         this.checkIn = checkIn;
     }
 
-    public String getCheckOut() {
+    public LocalDate getCheckOut() {
         return checkOut;
     }
 
-    public void setCheckOut(String checkOut) {
+    public void setCheckOut(LocalDate checkOut) {
         this.checkOut = checkOut;
     }
 
@@ -92,19 +108,5 @@ public class Order {
 
     public void setOrderDate(int orderDate) {
         this.orderDate = orderDate;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", hotelId=" + hotelId +
-                ", checkIn='" + checkIn + '\'' +
-                ", checkOut='" + checkOut + '\'' +
-                ", guests=" + guests +
-                ", price=" + price +
-                ", orderDate=" + orderDate +
-                '}';
     }
 }
