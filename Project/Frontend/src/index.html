@@ -16,7 +16,6 @@
 <div>
     <img src="images/main-image.png" alt="Discover your next stay" class="main-image">
 </div>
-<div id="page-container">
     <div>
         <form id="booking-form" class="booking-form" method="post">
             <div class="elem-group">
@@ -40,33 +39,12 @@
             </div>
         </form>
     </div>
-    <div>
-        <div class="hotel-container"></div>
-    </div>
 
     <div>
         <h4>Popular Hotels</h4>
     </div>
-    <div class="popular-showcase">
-        <div class="hotel">
-            <img class="hotel-image" src="images/hotel1.avif" alt="Hotel 1">
-                <h3>Hotel 1</h3>
-                <p>Oslo, Norway</p>
-                <p>Starting at $100 per night</p>
-            </div>
-        <div class="hotel">
-            <img class="hotel-image" src="images/hotel2.avif" alt="Hotel 2">
-            <h3>Hotel 2</h3>
-            <p>Ålesund, Norway</p>
-            <p>Starting at $120 per night</p>
+        <div class="hotel-container">
         </div>
-        <div class="hotel">
-            <img class="hotel-image" src="images/hotel3.avif" alt="Hotel 3">
-            <h3>Hotel 3</h3>
-            <p>Bergen, Norway</p>
-            <p>Starting at $150 per night</p>
-        </div>
-    </div>
     <div>
         <h4>Your Favorite Hotels</h4>
     </div>
@@ -90,12 +68,106 @@
             <p>Starting at $250 per night</p>
         </div>
     </div>
-</div>
     <footer id="main-footer">
         <p>Stay Finder &copy; 2024, All Rights Reserved</p>
     </footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
 <script src="script.js"></script>
+<script>
+
+    window.onload = function() {
+
+
+    // Fetch hotels data from the backend
+
+    fetch('http://localhost:8080/hotels')
+        .then(response => response.json())
+        .then(hotels => {
+            const hotelContainer = document.querySelector('.hotel-container');
+            hotels.slice(0,3).forEach((hotel, index) => {
+                const hotelDiv = document.createElement('div');
+                hotelDiv.className = 'hotel';
+
+                const img = document.createElement('img');
+                img.src = `images/hotel${index + 1}.avif`; // assuming you have hotel1.avif, hotel2.avif, etc. in your images directory
+                img.alt = hotel.name;
+                img.className = 'hotel-image';
+
+                const h3 = document.createElement('h3');
+                h3.textContent = hotel.name;
+
+                const locationP = document.createElement('p');
+                locationP.textContent = `${hotel.city}, ${hotel.country}`; // assuming your hotel object has properties 'city' and 'country
+
+                const priceP = document.createElement('p');
+                priceP.textContent = `Starting at $${hotel.price} per night`;
+
+                hotelDiv.append(img, h3, locationP, priceP);
+                hotelContainer.appendChild(hotelDiv);
+
+            });
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
+    // Initialize Litepicker
+        var picker = new Litepicker({
+            element: document.getElementById('date-range'),
+            singleMode: false,
+            format: 'YYYY-MM-DD',
+            delimiter: ' to ',
+            autoApply: true,
+            onSelect: function(date1, date2){
+                var checkinDate = date1.format('YYYY-MM-DD');
+                var checkoutDate = date2.format('YYYY-MM-DD');
+                // Do something with the selected dates
+            }
+        });
+
+
+        document.getElementById('booking-form').addEventListener('submit', function (event) {
+            // Prevent the form from submitting normally
+            event.preventDefault();
+
+            // Get the form inputs
+            var cityPreference = document.getElementsByName('destination_preference')[0].value;
+            var dateRange = document.getElementsByName('date_range')[0].value;
+            var totalGuests = document.getElementsByName('total_guests')[0].value;
+
+            // Split the date range into checkin and checkout dates
+            var dates = dateRange.split(' to ');
+            var checkinDate = dates[0];
+            var checkoutDate = dates[1];
+
+            // Make an AJAX request to the backend endpoint
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://localhost:8080/hotels/search?city=' + encodeURIComponent(cityPreference) +
+                '&checkIn=' + encodeURIComponent(checkinDate) +
+                '&checkOut=' + encodeURIComponent(checkoutDate) +
+                '&guests=' + encodeURIComponent(totalGuests));
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // Parse the response JSON
+                    var hotels = JSON.parse(xhr.responseText);
+
+                    // Store the hotels data in sessionStorage to pass it to the next page
+                    sessionStorage.setItem('hotels', JSON.stringify(hotels));
+
+                    // Redirect the user to the results page
+                    window.location.href = 'results.html';
+                } else {
+                    console.error('Request failed. Status: ' + xhr.status);
+                }
+            };
+
+            xhr.send();
+        });
+        // initialize the commonOnLoad function
+        commonOnLoad();
+    }
+</script>
 </body>
 </html>

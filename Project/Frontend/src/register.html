@@ -5,58 +5,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <title>Register</title>
+    <style>
+        .form {
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            width: 300px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .form .title {
+            color: #333333;
+            font-size: 30px;
+            font-weight: 600;
+            letter-spacing: -1px;
+            line-height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 20px;
+        }
+
+        .form input {
+            outline: 0;
+            border: 1px solid rgb(219, 213, 213);
+            padding: 8px 14px;
+            border-radius: 8px;
+            width: 100%;
+            height: 50px;
+        }
+
+        .form textarea {
+            border-radius: 8px;
+            height: 100px;
+            width: 100%;
+            resize: none;
+            outline: 0;
+            padding: 8px 14px;
+            border: 1px solid rgb(219, 213, 213);
+        }
+
+        .form button {
+            align-self: center;
+            padding: 8px;
+            outline: 0;
+            border: 0;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            background-color: #333333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .form button:hover {
+            background-color: #444444;
+        }
+    </style>
     <title>Hotels</title>
 </head>
 <body>
 <div class="wrapper">
     <header>
         <div id="navbar"></div>
-
-        <div id="mobile-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a class="current" href="hotels.html">Hotels</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </div>
     </header>
+    <div id="page-container">
+        <form class="form">
+            <div class="title">Register new user</div>
+            <input type="text" placeholder="First name" class="input">
+            <input type="text" placeholder="Last name" class="input">
+            <input type="text" placeholder="Username" class="input">
+            <input type="email" placeholder="Email" class="input">
+            <input type="password" placeholder="Password" class="input">
 
-    <div class="register-form">
-        <h1>Register your account</h1>
-        <form action="#">
-            <label for="first">First Name:</label>
-            <input type="text" id="first"
-                   name="first"
-                   placeholder="Enter your first name" required>
 
-            <label for="last">Last Name:</label>
-            <input type="text" id="last"
-                   name="last"
-                   placeholder="Enter your last name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email"
-                   name="email"
-                   placeholder="Enter your email" required>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password"
-                   name="password"
-                   placeholder="Enter your password"
-                   pattern=
-                           "^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$" required
-                   title="Password must contain at least one number,
-                   one alphabet, one symbol, and be at
-                   least 8 characters long">
-
-            <label for="repassword">Re-type Password:</label>
-            <input type="password" id="repassword"
-                   name="repassword"
-                   placeholder="Re-Enter your password" required>
-            <span id="pass"></span>
-            <button type="submit">Submit</button>
+            <button>Submit</button>
         </form>
     </div>
 </div>
@@ -75,5 +104,9 @@
     });
 </script>
 <script src="script.js"></script>
+<script>
+    // Initialize the commonOnLoad function
+    commonOnLoad();
+</script>
 </body>
 </html>

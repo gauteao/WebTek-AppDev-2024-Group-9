@@ -5,6 +5,69 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <title>Contact Us</title>
+  <style>
+    .form {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      width: 300px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .form .title {
+      color: #333333;
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: -1px;
+      line-height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form input {
+      outline: 0;
+      border: 1px solid rgb(219, 213, 213);
+      padding: 8px 14px;
+      border-radius: 8px;
+      width: 100%;
+      height: 50px;
+    }
+
+    .form textarea {
+      border-radius: 8px;
+      height: 100px;
+      width: 100%;
+      resize: none;
+      outline: 0;
+      padding: 8px 14px;
+      border: 1px solid rgb(219, 213, 213);
+    }
+
+    .form button {
+      align-self: center;
+      padding: 8px;
+      outline: 0;
+      border: 0;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      background-color: #333333;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .form button:hover {
+      background-color: #444444;
+    }
+  </style>
   <title>Hotels</title>
 </head>
 <body>
@@ -12,23 +75,25 @@
   <header>
     <div id="navbar"></div>
   </header>
-  <div class="contact-form">
-    <h1>Contact us</h1>
-    <form action="#">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required>
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-    </div>
+  <div id="page-container">
+  <form class="form">
+    <div class="title">Contact us</div>
+    <input type="text" placeholder="Your name" class="input">
+    <input type="text" placeholder="Your email" class="input">
+    <textarea placeholder="Your message"></textarea>
+
+    <button>Submit</button>
+  </form>
+  </div>
 </div>
   <footer id="main-footer">
       <p>Stay Finder &copy; 2024, All Rights Reserved</p>
   </footer>
 <script src="script.js"></script>
+<script>
+  // Initialize the commonOnLoad function
+    commonOnLoad();
+</script>
 </body>
 
 </html>
