@@ -14,8 +14,9 @@
         <main>
             <div class="hotel-page-info">
                 <h2 id="hotel-name"></h2>
-                <h3 id="hotel-address"></h3>
-                <h3 id="hotel-country"></h3>
+                <h3 id="hotel-address-country"></h3>
+                <img id="hotel-main-image" src="" alt="Main Hotel Image">
+
                 <p class="lead">Luxury Accommodation in the Heart of the City</p>
                 <div class="about-section">
                     <p>Welcome to our hotel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sodales est sit amet justo aliquet, at faucibus mauris bibendum. Vestibulum condimentum turpis nec massa feugiat, eget ullamcorper erat convallis.</p>
@@ -25,31 +26,30 @@
                 </div>
                 <div class="features">
                     <div class="feature">
-                        <img class="feature-symbol" src="images/swimmer.png" alt="Swimming Pool Icon">
+                        <i class="fa-solid fa-person-swimming fa-2x"></i>
                         <p>Swimming Pool</p>
                     </div>
                     <div class="feature">
-                        <img class="feature-symbol" src="images/swimmer.png" alt="Swimming Pool Icon">
+                        <i class="fa-solid fa-spa fa-2x"></i>
                         <p>Spa & Wellness Center</p>
                     </div>
                     <div class="feature">
-                        <img class="feature-symbol" src="images/swimmer.png" alt="Swimming Pool Icon">
+                        <i class="fa-solid fa-dumbbell fa-2x"></i>
                         <p>Fitness Center</p>
                     </div>
                     <div class="feature">
-                        <img class="feature-symbol" src="images/swimmer.png" alt="Swimming Pool Icon">
+                        <i class="fa-solid fa-utensils fa-2x"></i>
                         <p>Restaurant & Bar</p>
                     </div>
                     <div class="feature">
-                        <img class="feature-symbol" src="images/swimmer.png" alt="Swimming Pool Icon">
+                        <i class="fa-solid fa-wifi fa-2x"></i>
                         <p>Free Wi-Fi</p>
                     </div>
                 </div>
                 <div class="image-gallery">
-                    <img src="images/hotel1.avif" alt="Hotel">
-                    <img src="images/hotel1.avif" alt="Hotel">
-                    <img src="images/hotel1.avif" alt="Hotel">
+                    <!-- Images will be added here -->
                 </div>
+                <p id="hotel-prices"></p> <!-- Prices will be added here -->
                 <p id="hotel-price"></p>
                 <button class="btn-btn-primary">Book Now</button>
             </div>
@@ -72,20 +72,42 @@
         .then(hotel => {
             // Use the hotel data to populate the HTML elements on the page
             document.getElementById('hotel-name').textContent = hotel.name;
-            document.getElementById('hotel-address').textContent = hotel.address;
-            document.getElementById('hotel-country').textContent = hotel.country;
+            document.getElementById('hotel-address-country').textContent = `${hotel.address}, ${hotel.country}`;
 
-            // Concatenate the strings to display the price
-            var priceText = "$" + hotel.price + " per night";
-            document.getElementById('hotel-price').textContent = priceText;
+            // Display the prices
+            var pricesDiv = document.createElement('div');
+            pricesDiv.id = 'hotel-prices';
+            hotel.prices.forEach(price => {
+                var priceP = document.createElement('p');
+                priceP.textContent = price.source + ': $' + price.amount;
+                pricesDiv.appendChild(priceP);
+            });
+            document.querySelector('.hotel-page-info').appendChild(pricesDiv);
+
+            // Calculate the minimum price
+            var minPrice = Math.min(...hotel.prices.map(price => price.amount));
+
+            // Display the minimum price
+            document.getElementById('hotel-price').textContent = "From $" + minPrice + " per night";
+
+            // Set the source of the main image to the first image of the hotel
+            document.getElementById('hotel-main-image').src = `images/hotel${hotelId}/1.avif`;
+
+            // Generate the image paths and add them to the image gallery
+            var imageGallery = document.querySelector('.image-gallery');
+            for (var i = 1; i <= 3; i++) {
+                var img = document.createElement('img');
+                img.src = `images/hotel${hotelId}/${i}.avif`;
+                img.alt = "Hotel";
+                imageGallery.appendChild(img);
+            }
         })
         .catch(error => console.error('Error:', error));
 
-        // Initialize the commonOnLoad function
-        commonOnLoad();
+    // Initialize the commonOnLoad function
+    commonOnLoad();
 </script>
-
-
+<script src="https://kit.fontawesome.com/753e2a5a55.js" crossorigin="anonymous"></script>
 </script>
 </body>
 </html>

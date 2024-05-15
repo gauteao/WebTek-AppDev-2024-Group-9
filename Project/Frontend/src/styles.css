@@ -264,6 +264,11 @@ p {
     color: #333;
 }
 
+#hotel-main-image {
+    width: 50%; /* or any other value */
+    height: auto; /* maintain aspect ratio */
+}
+
 .features {
     display: flex;
     justify-content: space-around;

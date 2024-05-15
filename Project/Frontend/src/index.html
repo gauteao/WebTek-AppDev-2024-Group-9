@@ -50,19 +50,19 @@
     </div>
     <div class="favorite-showcase">
         <div class="hotel">
-            <img class="hotel-image" src="images/hotel4.avif" alt="Hotel 4">
+            <img class="hotel-image" src="images/hotel4/1.avif" alt="Hotel 4">
             <h3>Hotel 4</h3>
             <p>Oslo, Norway</p>
             <p>Starting at $200 per night</p>
         </div>
         <div class="hotel">
-            <img class="hotel-image" src="images/hotel5.avif" alt="Hotel 5">
+            <img class="hotel-image" src="images/hotel5/1.avif" alt="Hotel 5">
             <h3>Hotel 5</h3>
             <p>Ålesund, Norway</p>
             <p>Starting at $220 per night</p>
         </div>
         <div class="hotel">
-            <img class="hotel-image" src="images/hotel6.avif" alt="Hotel 6">
+            <img class="hotel-image" src="images/hotel6/1.avif" alt="Hotel 6">
             <h3>Hotel 6</h3>
             <p>Bergen, Norway</p>
             <p>Starting at $250 per night</p>
@@ -77,40 +77,43 @@
 <script>
 
     window.onload = function() {
+        // Fetch hotels data from the backend
+        fetch('http://localhost:8080/hotels')
+            .then(response => response.json())
+            .then(hotels => {
+                const hotelContainer = document.querySelector('.hotel-container');
+                hotels.slice(0,3).forEach((hotel, index) => {
+                    const hotelDiv = document.createElement('div');
+                    hotelDiv.className = 'hotel';
+                    hotelDiv.setAttribute('data-hotel-id', hotel.id); // Add hotel id as data attribute
 
+                    const img = document.createElement('img');
+                    img.src = `images/hotel${index + 1}/1.avif`; // Assuming you have hotel1.avif, hotel2.avif, etc. in your images directory
+                    img.alt = hotel.name;
+                    img.className = 'hotel-image';
 
-    // Fetch hotels data from the backend
+                    const h3 = document.createElement('h3');
+                    h3.textContent = hotel.name;
 
-    fetch('http://localhost:8080/hotels')
-        .then(response => response.json())
-        .then(hotels => {
-            const hotelContainer = document.querySelector('.hotel-container');
-            hotels.slice(0,3).forEach((hotel, index) => {
-                const hotelDiv = document.createElement('div');
-                hotelDiv.className = 'hotel';
+                    const locationP = document.createElement('p');
+                    locationP.textContent = `${hotel.city}, ${hotel.country}`;
 
-                const img = document.createElement('img');
-                img.src = `images/hotel${index + 1}.avif`; // assuming you have hotel1.avif, hotel2.avif, etc. in your images directory
-                img.alt = hotel.name;
-                img.className = 'hotel-image';
+                    const priceP = document.createElement('p');
+                    priceP.textContent = `Starting at $${hotel.price} per night`;
 
-                const h3 = document.createElement('h3');
-                h3.textContent = hotel.name;
+                    hotelDiv.append(img, h3, locationP, priceP);
+                    hotelContainer.appendChild(hotelDiv);
 
-                const locationP = document.createElement('p');
-                locationP.textContent = `${hotel.city}, ${hotel.country}`; // assuming your hotel object has properties 'city' and 'country
-
-                const priceP = document.createElement('p');
-                priceP.textContent = `Starting at $${hotel.price} per night`;
-
-                hotelDiv.append(img, h3, locationP, priceP);
-                hotelContainer.appendChild(hotelDiv);
-
+                    // Add click event listener to each hotel
+                    hotelDiv.addEventListener('click', function() {
+                        // Redirect to hotel page with hotel id as query parameter
+                        window.location.href = `hotel-page.html?hotelId=${hotel.id}`;
+                    });
+                });
+            })
+            .catch((error) => {
+                console.error('Error:', error);
             });
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
 
     // Initialize Litepicker
         var picker = new Litepicker({

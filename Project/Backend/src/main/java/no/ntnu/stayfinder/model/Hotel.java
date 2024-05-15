@@ -1,9 +1,9 @@
 package no.ntnu.stayfinder.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Hotel {
@@ -15,22 +15,37 @@ public class Hotel {
     private String city;
     private String country;
     private int maxGuests;
-    private int price;
     private boolean isHidden;
+    @ElementCollection
+    private List<String> roomTypes;
+    @ElementCollection
+    private List<String> extraFeatures;
+    @ElementCollection
+    private List<LocalDate> availableDates;
+    private int establishedYear;
+    private String locationType;
+
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
+    private List<Price> prices;
 
 
     public Hotel() {
     }
 
-    public Hotel(Long id, String name, String address, String city, String country, int maxGuests, int price, boolean isHidden) {
+    public Hotel(Long id, String name, String address, String city, String country, int maxGuests, boolean isHidden, List<String> roomTypes, List<String> extraFeatures, List<LocalDate> availableDates, int establishedYear, String locationType, List<Price> prices) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.city = city;
         this.country = country;
         this.maxGuests = maxGuests;
-        this.price = price;
         this.isHidden = isHidden;
+        this.roomTypes = roomTypes;
+        this.extraFeatures = extraFeatures;
+        this.availableDates = availableDates;
+        this.establishedYear = establishedYear;
+        this.locationType = locationType;
+        this.prices = prices;
     }
 
     public Long getId() {
@@ -81,20 +96,60 @@ public class Hotel {
         this.maxGuests = maxGuests;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
     public boolean isHidden() {
         return isHidden;
     }
 
     public void setHidden(boolean hidden) {
         isHidden = hidden;
+    }
+
+    public List<String> getRoomTypes() {
+        return roomTypes;
+    }
+
+    public void setRoomTypes(List<String> roomTypes) {
+        this.roomTypes = roomTypes;
+    }
+
+    public List<String> getExtraFeatures() {
+        return extraFeatures;
+    }
+
+    public void setExtraFeatures(List<String> extraFeatures) {
+        this.extraFeatures = extraFeatures;
+    }
+
+    public List<Price> getPrices() {
+        return prices;
+    }
+
+    public void setPrices(List<Price> prices) {
+        this.prices = prices;
+    }
+
+    public List<LocalDate> getAvailableDates() {
+        return availableDates;
+    }
+
+    public void setAvailableDates(List<LocalDate> availableDates) {
+        this.availableDates = availableDates;
+    }
+
+    public int getEstablishedYear() {
+        return establishedYear;
+    }
+
+    public void setEstablishedYear(int establishedYear) {
+        this.establishedYear = establishedYear;
+    }
+
+    public String getLocationType() {
+        return locationType;
+    }
+
+    public void setLocationType(String locationType) {
+        this.locationType = locationType;
     }
 
     @Override
@@ -106,8 +161,8 @@ public class Hotel {
                 ", city='" + city + '\'' +
                 ", country='" + country + '\'' +
                 ", maxGuests=" + maxGuests +
-                ", price=" + price +
                 ", isHidden=" + isHidden +
                 '}';
     }
+
 }

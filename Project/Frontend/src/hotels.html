@@ -24,12 +24,6 @@
     </footer>
 <script>
     window.onload = function() {
-        // Fetch navbar.html and insert its content into the navbar div
-        fetch('./navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar').innerHTML = data;
-            });
 
         fetch('http://localhost:8080/hotels')
             .then(response => response.json())
@@ -40,7 +34,7 @@
                     hotelDiv.className = 'hotel';
 
                     const img = document.createElement('img');
-                    img.src = `images/hotel${index + 1}.avif`; // assuming you have hotel1.avif, hotel2.avif, etc. in your images directory
+                    img.src = `images/hotel${index + 1}/1.avif`; // assuming you have hotel1.avif, hotel2.avif, etc. in your images directory
                     img.alt = hotel.name;
                     img.className = 'hotel-image';
 
@@ -56,6 +50,11 @@
                     hotelDiv.append(img, h3, locationP, priceP);
                     hotelContainer.appendChild(hotelDiv);
 
+                    // Add click event listener to each hotel
+                    hotelDiv.addEventListener('click', function() {
+                        // Redirect to hotel page with hotel id as query parameter
+                        window.location.href = `hotel-page.html?hotelId=${hotel.id}`;
+                    });
                 });
             })
             .catch((error) => {
