@@ -1,7 +1,6 @@
 package no.ntnu.stayfinder.model;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 import java.util.List;
 

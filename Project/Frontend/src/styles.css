@@ -587,8 +587,9 @@ a {
 }
 
 #main-footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #ffffff;
+    color: #444444;
+    font-size: 16px;
     text-align: center;
     padding: 20px;
     z-index : 9999;
