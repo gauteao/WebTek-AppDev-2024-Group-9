@@ -25,26 +25,7 @@
                     </ul>
                 </div>
                 <div class="features">
-                    <div class="feature">
-                        <i class="fa-solid fa-person-swimming fa-2x"></i>
-                        <p>Swimming Pool</p>
-                    </div>
-                    <div class="feature">
-                        <i class="fa-solid fa-spa fa-2x"></i>
-                        <p>Spa & Wellness Center</p>
-                    </div>
-                    <div class="feature">
-                        <i class="fa-solid fa-dumbbell fa-2x"></i>
-                        <p>Fitness Center</p>
-                    </div>
-                    <div class="feature">
-                        <i class="fa-solid fa-utensils fa-2x"></i>
-                        <p>Restaurant & Bar</p>
-                    </div>
-                    <div class="feature">
-                        <i class="fa-solid fa-wifi fa-2x"></i>
-                        <p>Free Wi-Fi</p>
-                    </div>
+                    <!-- Features will be added here -->
                 </div>
                 <div class="image-gallery">
                     <!-- Images will be added here -->
@@ -101,11 +82,51 @@
                 img.alt = "Hotel";
                 imageGallery.appendChild(img);
             }
+
+            // Display the features
+            var featuresDiv = document.querySelector('.features');
+            hotel.extraFeatures.forEach(feature => {
+                var featureDiv = document.createElement('div');
+                featureDiv.className = 'feature';
+
+                // Create an icon for the feature
+                var featureIcon = document.createElement('i');
+                featureIcon.className = 'fa-solid ' + getFeatureIconClass(feature) + ' fa-2x';
+                featureDiv.appendChild(featureIcon);
+
+                // Create a paragraph for the feature
+                var featureP = document.createElement('p');
+                featureP.textContent = feature;
+                featureDiv.appendChild(featureP);
+
+                featuresDiv.appendChild(featureDiv);
+            }); // This is the correct placement for the closing bracket
         })
         .catch(error => console.error('Error:', error));
 
     // Initialize the commonOnLoad function
     commonOnLoad();
+
+    // Function to get the Font Awesome class for a feature
+    function getFeatureIconClass(feature) {
+        switch (feature) {
+            case 'Swimming Pool':
+                return 'fa-person-swimming';
+            case 'Spa Services':
+                return 'fa-spa';
+            case 'Fitness Center':
+                return 'fa-dumbbell';
+            case 'Gourmet Dining':
+                return 'fa-utensils';
+            case 'Free Wi-Fi':
+                return 'fa-wifi';
+                case "Limousine Service":
+                return 'fa-taxi';
+            // Add more cases as needed for other features
+            default:
+                return 'fa-question'; // Default icon for unknown features
+        }
+    }
 </script>
 <script src="https://kit.fontawesome.com/753e2a5a55.js" crossorigin="anonymous"></script>
 </script>
