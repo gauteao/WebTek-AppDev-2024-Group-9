@@ -11,10 +11,20 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
 
 /**
- * Inspiration from "security-demos/01-in-memory-authentication/src/main/java/no/ntnu/jwtauth/SecurityConfiguration.java"
+ * Security configuration class that configures authentication and authorization
+ * for the application.
  */
 @Configuration
 public class SecurityConfig {
+
+    /**
+     * Configures HTTP security for the application, requiring all requests to be authenticated
+     * and configuring form-based authentication.
+     *
+     * @param http the {@link HttpSecurity} to configure
+     * @return the {@link SecurityFilterChain} that represents the configured security settings
+     * @throws Exception if an error occurs during the configuration
+     */
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((authorize) -> authorize.anyRequest().authenticated())
                 .formLogin(Customizer.withDefaults());
@@ -22,16 +32,21 @@ public class SecurityConfig {
         return http.build();
     }
 
+    /**
+     * Configures in-memory user details service with predefined users and their roles.
+     *
+     * @return the {@link UserDetailsService} that manages user details
+     */
     @Bean
     public UserDetailsService users() {
         UserDetails user = User.builder()
                 .username("chuck")
-                .password("")
+                .password("{bcrypt}$2a$12$/NoknpFFPDlzL3kBryJfsur0yeYC2JFqAs7Fd79ypMP6PN/mtSYmC")
                 .roles("USER", "ADMIN")
                 .build();
         UserDetails admin = User.builder()
                 .username("dave")
-                .password("")
+                .password("{bcrypt}$2a$10$nwbEjYKgcomq2rjUPge2JegqI.y4zEcNqRMPdqwFnd1ytorNCQM/y")
                 .roles("USER")
                 .build();
         return new InMemoryUserDetailsManager(user, admin);
