@@ -1,4 +1,4 @@
-package no.ntnu.stayfinder.model;
+package no.ntnu.stayfinder.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
