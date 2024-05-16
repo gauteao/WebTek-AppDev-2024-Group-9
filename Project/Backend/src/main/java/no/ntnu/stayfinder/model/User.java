@@ -1,31 +1,41 @@
 package no.ntnu.stayfinder.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class User{
+    @Id@SequenceGenerator(
+            name = "student_sequence",
+            sequenceName = "student_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "student_sequence"
+    )
     private Long id;
     private String firstName;
     private String lastName;
     private String userName;
     private String email;
     private String password;
+    private Boolean locked = locked = false;
+    private Boolean enabled = false;
+    @Enumerated(EnumType.STRING)
+    private AppUserRole appUserRole;
 
-    public User(Long id, String firstName, String lastName, String userName, String email, String password) {
+    public User(Long id, String firstName, String lastName, String email,
+                String password, AppUserRole appUserRole) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userName = userName;
         this.email = email;
         this.password = password;
+        this.appUserRole = appUserRole;
     }
 
     public User() {
+
     }
 
     public Long getId() {
@@ -39,13 +49,11 @@ public class User {
     public String getFirstName() {
         return firstName;
     }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public void setLastName(String lastName) {
@@ -75,6 +83,18 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    public boolean isAccountNonLocked() {
+        return !locked;
+    }
+
+    public boolean isCredentialsNonExpired() {return true;}
+
+    public boolean isEnabled() {return enabled;}
 
     @Override
     public java.lang.String toString() {
