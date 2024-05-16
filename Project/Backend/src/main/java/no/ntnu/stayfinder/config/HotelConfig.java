@@ -22,9 +22,9 @@ public class HotelConfig {
             Hotel hotel1 = new Hotel(
                     1L,
                     "Andante Hotel",
-                    "Ålesund Gate 1",
-                    "Ålesund",
-                    "Norway",
+                    "Carrer de Aribau 1",
+                    "Barcelona",
+                    "Spain",
                     1,
                     false,
                     Arrays.asList("Single"),
@@ -292,7 +292,144 @@ public class HotelConfig {
             // Save the Hotel object again
             hotelRepository.save(hotel8);
 
+            // Hotel 9
+            Hotel hotel9 = new Hotel(
+                    9L,
+                    "Grand Hotel Terminus",
+                    "Via Sistina 9",
+                    "Bergen",
+                    "Norway",
+                    6,
+                    false,
+                    Arrays.asList("Classic", "Deluxe", "Grand Suite"),
+                    Arrays.asList("Whisky Bar", "Heritage Building", "Afternoon Tea"),
+                    Arrays.asList(LocalDate.of(2024, 8, 20), LocalDate.of(2024, 8, 25)),
+                    2020, // Established year
+                    "City Center", // Location type
+                    null // Prices will be added separately
+            );
 
+            // Save the hotel
+            hotel9 = hotelRepository.save(hotel9);
+
+            // Create Price objects
+            Price price18 = new Price("TripAdvisor", 1200, hotel9);
+            Price price19 = new Price("Hotels.com", 1250, hotel9);
+
+            // Save the Price objects
+            priceRepository.save(price18);
+            priceRepository.save(price19);
+
+            // Add the Price objects to the Hotel object's prices list
+            hotel9.setPrices(Arrays.asList(price18, price19));
+
+            // Save the Hotel object again
+            hotelRepository.save(hotel9);
+
+
+            // Hotel 10
+            Hotel hotel10 = new Hotel(
+                    10L,
+                    "The Thief",
+                    "Torgalmenningen 10",
+                    "Oslo",
+                    "Norway",
+                    4,
+                    false,
+                    Arrays.asList("Artist", "Premium", "Suite"),
+                    Arrays.asList("Spa", "Waterfront Views", "Art Decor"),
+                    Arrays.asList(LocalDate.of(2024, 10, 1), LocalDate.of(2024, 10, 6)),
+                    2015, // Established year
+                    "City Center", // Location type
+                    null // Prices will be added separately
+            );
+
+            // Save the hotel
+            hotel10 = hotelRepository.save(hotel10);
+
+            // Create Price objects
+            Price price20 = new Price("The Thief Website", 2300, hotel10);
+            Price price21 = new Price("Agoda", 2500, hotel10);
+
+            // Save the Price objects
+            priceRepository.save(price20);
+            priceRepository.save(price21);
+
+            // Add the Price objects to the Hotel object's prices list
+            hotel10.setPrices(Arrays.asList(price20, price21));
+
+            // Save the Hotel object again
+            hotelRepository.save(hotel10);
+
+            // Hotel 11
+            Hotel hotel11 = new Hotel(
+                    11L,
+                    "Hotel Bristol",
+                    "Kristian IVs gate 11",
+                    "Oslo",
+                    "Norway",
+                    6,
+                    false,
+                    Arrays.asList("Classic Room", "Deluxe Room", "Suite"),
+                    Arrays.asList("Library Bar", "Afternoon Tea", "Fitness Room"),
+                    Arrays.asList(LocalDate.of(2024, 6, 15), LocalDate.of(2024, 6, 20)),
+                    1920, // Established year
+                    "City Center", // Location type
+                    null // Prices will be added separately
+            );
+
+            // Save the hotel
+            hotel11 = hotelRepository.save(hotel11);
+
+            // Create Price objects
+            Price price22 = new Price("Booking.com", 1600, hotel11);
+            Price price23 = new Price("Expedia", 1700, hotel11);
+
+            // Save the Price objects
+            priceRepository.save(price22);
+            priceRepository.save(price23);
+
+            // Add the Price objects to the Hotel object's prices list
+            hotel11.setPrices(Arrays.asList(price22, price23));
+
+            // Save the Hotel object again
+            hotelRepository.save(hotel11);
+
+            // Hotel 12
+            Hotel hotel12 = new Hotel(
+                    12L,
+                    "Marina Bay Sands",
+                    "Stortingsgata 12",
+                    "Oslo",
+                    "Norway",
+                    8,
+                    false,
+                    Arrays.asList("Deluxe", "Premier", "Club Room"),
+                    Arrays.asList("Library Bar", "Afternoon Tea", "Fitness Room"),
+                    Arrays.asList(LocalDate.of(2024, 11, 5), LocalDate.of(2024, 11, 10)),
+                    2010, // Established year
+                    "Waterfront/City Center", // Location type
+                    null // Prices will be added separately
+            );
+
+            // Save the hotel
+            hotel12 = hotelRepository.save(hotel12);
+
+            // Create Price objects
+            Price price24 = new Price("Marina Bay Sands Website", 4000, hotel12);
+            Price price25 = new Price("Trip.com", 4500, hotel12);
+            Price price26 = new Price("Hotels.com", 4000, hotel12);
+
+            // Save the Price objects
+            priceRepository.save(price24);
+            priceRepository.save(price25);
+            priceRepository.save(price26);
+
+            // Add the Price objects to the Hotel object's prices list
+            hotel12.setPrices(Arrays.asList(price24, price25, price26));
+
+            // Save the Hotel object again
+            hotelRepository.save(hotel12);
         };
     }
 }
