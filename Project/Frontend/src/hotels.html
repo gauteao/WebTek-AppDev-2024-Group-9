@@ -19,12 +19,11 @@
 
     </div>
 </div>
-    <footer id="main-footer">
-        <p>Stay Finder &copy; 2024, All Rights Reserved</p>
-    </footer>
+<footer>
+    <div id="main-footer"></div>
+</footer>
 <script>
     window.onload = function() {
-
         fetch('http://localhost:8080/hotels')
             .then(response => response.json())
             .then(hotels => {
@@ -44,8 +43,11 @@
                     const locationP = document.createElement('p');
                     locationP.textContent = `${hotel.city}, ${hotel.country}`; // assuming your hotel object has properties 'city' and 'country
 
+                    // Calculate the minimum price
+                    var minPrice = Math.min(...hotel.prices.map(price => price.amount));
+
                     const priceP = document.createElement('p');
-                    priceP.textContent = `Starting at $${hotel.price} per night`;
+                    priceP.textContent = `Starting at $${minPrice} per night`;
 
                     hotelDiv.append(img, h3, locationP, priceP);
                     hotelContainer.appendChild(hotelDiv);
@@ -61,7 +63,7 @@
                 console.error('Error:', error);
             });
 
- // Initialize the commonOnLoad function
+        // Initialize the commonOnLoad function
         commonOnLoad();
     }
 

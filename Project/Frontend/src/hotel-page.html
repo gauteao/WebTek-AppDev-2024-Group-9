@@ -14,10 +14,10 @@
         <main>
             <div class="hotel-page-info">
                 <h2 id="hotel-name"></h2>
-                <h3 id="hotel-address-country"></h3>
+                <h3 id="hotel-city-country"></h3>
                 <img id="hotel-main-image" src="" alt="Main Hotel Image">
-
                 <p class="lead">Luxury Accommodation in the Heart of the City</p>
+                <p id="hotel-prices"></p> <!-- Prices will be added here -->
                 <div class="about-section">
                     <p>Welcome to our hotel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sodales est sit amet justo aliquet, at faucibus mauris bibendum. Vestibulum condimentum turpis nec massa feugiat, eget ullamcorper erat convallis.</p>
                     <br>
@@ -30,14 +30,11 @@
                 <div class="image-gallery">
                     <!-- Images will be added here -->
                 </div>
-                <p id="hotel-prices"></p> <!-- Prices will be added here -->
-                <p id="hotel-price"></p>
-                <button class="btn-btn-primary">Book Now</button>
             </div>
         </main>
     </div>
-<footer id="main-footer">
-    <p>Stay Finder &copy; 2024, All Rights Reserved</p>
+<footer>
+    <div id="main-footer"></div>
 </footer>
 <script src="script.js"></script>
 <script>
@@ -53,26 +50,22 @@
         .then(hotel => {
             // Use the hotel data to populate the HTML elements on the page
             document.getElementById('hotel-name').textContent = hotel.name;
-            document.getElementById('hotel-address-country').textContent = `${hotel.address}, ${hotel.country}`;
+            document.getElementById('hotel-city-country').textContent = `${hotel.city}, ${hotel.country}`;
+
+
+            // Set the source of the main image to the first image of the hotel
+            document.getElementById('hotel-main-image').src = `images/hotel${hotelId}/1.avif`;
 
             // Display the prices
             var pricesDiv = document.createElement('div');
             pricesDiv.id = 'hotel-prices';
             hotel.prices.forEach(price => {
-                var priceP = document.createElement('p');
-                priceP.textContent = price.source + ': $' + price.amount;
-                pricesDiv.appendChild(priceP);
+                var priceButton = document.createElement('button');
+                priceButton.textContent = price.source + ': $' + price.amount;
+                priceButton.className = 'price-button'; // Add a class to style the buttons
+                pricesDiv.appendChild(priceButton);
             });
-            document.querySelector('.hotel-page-info').appendChild(pricesDiv);
-
-            // Calculate the minimum price
-            var minPrice = Math.min(...hotel.prices.map(price => price.amount));
-
-            // Display the minimum price
-            document.getElementById('hotel-price').textContent = "From $" + minPrice + " per night";
-
-            // Set the source of the main image to the first image of the hotel
-            document.getElementById('hotel-main-image').src = `images/hotel${hotelId}/1.avif`;
+            document.querySelector('.hotel-page-info').insertBefore(pricesDiv, document.querySelector('.about-section'));
 
             // Generate the image paths and add them to the image gallery
             var imageGallery = document.querySelector('.image-gallery');
@@ -100,7 +93,7 @@
                 featureDiv.appendChild(featureP);
 
                 featuresDiv.appendChild(featureDiv);
-            }); // This is the correct placement for the closing bracket
+            });
         })
         .catch(error => console.error('Error:', error));
 
@@ -113,16 +106,48 @@
             case 'Swimming Pool':
                 return 'fa-person-swimming';
             case 'Spa Services':
+            case "Spa":
                 return 'fa-spa';
             case 'Fitness Center':
+            case "Fitness Room":
+            case "24-hour Gym Access":
                 return 'fa-dumbbell';
             case 'Gourmet Dining':
                 return 'fa-utensils';
-            case 'Free Wi-Fi':
+            case 'Complimentary Wi-Fi':
                 return 'fa-wifi';
                 case "Limousine Service":
                 return 'fa-taxi';
-            // Add more cases as needed for other features
+            case "Rooftop Pool":
+                return 'fa-person-swimming';
+            case "In-house Restaurant":
+                return 'fa-utensils';
+            case "Meeting Rooms":
+                return 'fa-users';
+            case "EV Charging Stations":
+                return 'fa-charging-station';
+            case "Bicycle Rental":
+                return 'fa-bicycle';
+            case "Business Center":
+                return 'fa-briefcase';
+            case "Mini Bar":
+            case "Whisky Bar":
+                return 'fa-glass-whiskey';
+            case "Private Terrace":
+                return 'fa-sun'
+            case "Babysitting Service":
+                return 'fa-baby';
+            case "Library Bar":
+                return 'fa-book';
+            case "Afternoon Tea":
+                return 'fa-coffee';
+                case "Waterfront Views":
+                return 'fa-water';
+            case "Art Decor":
+                return 'fa-paint-brush';
+            case "Heritage Building":
+                return 'fa-landmark';
+
             default:
                 return 'fa-question'; // Default icon for unknown features
         }

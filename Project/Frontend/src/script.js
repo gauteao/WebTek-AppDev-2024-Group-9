@@ -11,6 +11,16 @@ function commonOnLoad() {
                 }
             });
 
+        // Fetch footer.html and insert its content into the footer div
+        fetch('./footer.html')
+            .then(response => response.text())
+            .then(data => {
+                const footerDiv = document.getElementById('main-footer');
+                if (footerDiv) {
+                    footerDiv.innerHTML = data;
+                }
+            });
+
  // Initialize the dropdown menu for login
     var dropdownContent = document.querySelector('.dropdown-content');
     var dropbtn = document.querySelector('.dropbtn');

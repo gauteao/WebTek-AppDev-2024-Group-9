@@ -68,8 +68,8 @@
             <p>Starting at $250 per night</p>
         </div>
     </div>
-    <footer id="main-footer">
-        <p>Stay Finder &copy; 2024, All Rights Reserved</p>
+    <footer>
+        <div id="main-footer"></div>
     </footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
@@ -98,8 +98,11 @@
                     const locationP = document.createElement('p');
                     locationP.textContent = `${hotel.city}, ${hotel.country}`;
 
+                    // Calculate the minimum price
+                    var minPrice = Math.min(...hotel.prices.map(price => price.amount));
+
                     const priceP = document.createElement('p');
-                    priceP.textContent = `Starting at $${hotel.price} per night`;
+                    priceP.textContent = `Starting at $${minPrice} per night`;
 
                     hotelDiv.append(img, h3, locationP, priceP);
                     hotelContainer.appendChild(hotelDiv);
