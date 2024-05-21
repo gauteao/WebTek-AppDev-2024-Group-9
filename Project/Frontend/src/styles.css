@@ -307,7 +307,7 @@ p {
 
 #hotel-results {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 20px;
     margin: 20px auto;
     max-width: 500px;
@@ -320,7 +320,7 @@ p {
 
 .hotel-result {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     gap: 20px;
     background-color: #fff;

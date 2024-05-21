@@ -47,7 +47,7 @@
                     var minPrice = Math.min(...hotel.prices.map(price => price.amount));
 
                     const priceP = document.createElement('p');
-                    priceP.textContent = `Starting at $${minPrice} per night`;
+                    priceP.textContent = `Starting at ${minPrice} kr per night`;
 
                     hotelDiv.append(img, h3, locationP, priceP);
                     hotelContainer.appendChild(hotelDiv);

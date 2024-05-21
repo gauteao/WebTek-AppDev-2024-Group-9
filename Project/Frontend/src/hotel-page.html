@@ -61,7 +61,7 @@
             pricesDiv.id = 'hotel-prices';
             hotel.prices.forEach(price => {
                 var priceButton = document.createElement('button');
-                priceButton.textContent = price.source + ': $' + price.amount;
+                priceButton.textContent = price.source + ': ' + price.amount +' kr';
                 priceButton.className = 'price-button'; // Add a class to style the buttons
                 pricesDiv.appendChild(priceButton);
             });
