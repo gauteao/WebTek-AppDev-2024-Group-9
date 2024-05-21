@@ -47,7 +47,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((auth) -> auth.requestMatchers("/hotels/**").permitAll())
                 .authorizeHttpRequests((auth) -> auth.requestMatchers("/api/authenticate").permitAll())
                 // The default URL / is accessible to everyone
-                .authorizeHttpRequests((auth) -> auth.requestMatchers("/", "index.html").permitAll())
+                .authorizeHttpRequests((auth) -> auth.requestMatchers("/", "/index.html").permitAll())
                 .authorizeHttpRequests((authorize) -> authorize.anyRequest().authenticated())
                 // Use standard login-form
                 .formLogin(Customizer.withDefaults());
