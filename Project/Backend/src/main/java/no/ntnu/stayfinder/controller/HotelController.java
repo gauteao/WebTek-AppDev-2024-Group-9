@@ -18,7 +18,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(path = "/hotels")
-@CrossOrigin(origins = "http://localhost:63342")
+@CrossOrigin(origins = "*")
 public class HotelController {
 
     private final HotelService hotelService;
