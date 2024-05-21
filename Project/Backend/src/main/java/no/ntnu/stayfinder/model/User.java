@@ -1,41 +1,103 @@
 package no.ntnu.stayfinder.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
-@Entity
-public class User{
-    @Id@SequenceGenerator(
-            name = "student_sequence",
-            sequenceName = "student_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "student_sequence"
-    )
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+/*
+ * Represents a user
+ * @param id The user's unique identifier
+ * @param firstName The user's first name
+ * @param lastName The user's last name
+ * @param username The user's username
+ * @param email The user's email
+ * @param password The user's password
+ * @param active Whether the user is active
+ * @param roles The roles of the user
+ */
+
+@Schema(description = "Represents a user")
+@Entity(name = "users")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
-    private String userName;
+    private String username;
     private String email;
     private String password;
-    private Boolean locked = locked = false;
-    private Boolean enabled = false;
-    @Enumerated(EnumType.STRING)
-    private AppUserRole appUserRole;
+    private boolean active = true;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Role> roles = new LinkedHashSet<>();
 
-    public User(Long id, String firstName, String lastName, String email,
-                String password, AppUserRole appUserRole) {
+    public User(Long id, String firstName, String lastName, String username, String email, String password, boolean active) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.username = username;
         this.email = email;
         this.password = password;
-        this.appUserRole = appUserRole;
+        this.active = active;
+    }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
     public User() {
+    }
 
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    /**
+     * Add a role to the user.
+     *
+     * @param role Role to add
+     */
+    public void addRole(Role role) {
+        roles.add(role);
+    }
+
+    /**
+     * Check if this user is an admin.
+     *
+     * @return True if the user has admin role, false otherwise
+     */
+    public boolean isAdmin() {
+        return this.hasRole("ROLE_ADMIN");
+    }
+
+    /**
+     * Check if the user has a specified role.
+     *
+     * @param roleName Name of the role
+     * @return True if hte user has the role, false otherwise.
+     */
+    public boolean hasRole(String roleName) {
+        boolean found = false;
+        Iterator<Role> it = roles.iterator();
+        while (!found && it.hasNext()) {
+            Role role = it.next();
+            if (role.getName().equals(roleName)) {
+                found = true;
+            }
+        }
+        return found;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
     }
 
     public Long getId() {
@@ -49,23 +111,25 @@ public class User{
     public String getFirstName() {
         return firstName;
     }
-    public String getLastName() {
-        return lastName;
-    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -84,17 +148,13 @@ public class User{
         this.password = password;
     }
 
-    public boolean isAccountNonExpired() {
-        return true;
+    public boolean isActive() {
+        return active;
     }
 
-    public boolean isAccountNonLocked() {
-        return !locked;
+    public void setActive(boolean active) {
+        this.active = active;
     }
-
-    public boolean isCredentialsNonExpired() {return true;}
-
-    public boolean isEnabled() {return enabled;}
 
     @Override
     public java.lang.String toString() {
@@ -102,9 +162,11 @@ public class User{
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", userName='" + userName + '\'' +
+                ", userName='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ",enables=" + active +
+                "roles=" + roles +
                 '}';
     }
 }
