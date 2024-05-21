@@ -3,6 +3,10 @@ package no.ntnu.stayfinder.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import no.ntnu.stayfinder.security.AccessUserDetails;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -10,6 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -27,6 +32,14 @@ public class HelloController {
             description = "Returns a welcome message")
     public String home() {
         return "This is a public home page";
+    }
+
+    @GetMapping("/index")
+    public ResponseEntity<Resource> serveIndexHtml() throws IOException {
+        Resource resource = new ClassPathResource("static/index.html");
+        return ResponseEntity.ok()
+                .contentType(MediaType.TEXT_HTML)
+                .body(resource);
     }
 
     /**
