@@ -1,10 +1,18 @@
 package no.ntnu.stayfinder.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+/*
+    * Represents a favorite hotel
+    @param id The favorite's unique identifier
+    @param userId The user's unique identifier
+    @param hotelId The hotel's unique identifier
+ */
+@Schema(description = "Represents a favorite hotel")
 @Entity
 public class Favorite {
     @Id

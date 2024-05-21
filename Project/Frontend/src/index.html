@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.css"/>
-    <title>Hotels</title>
+    <title>Stay Finder</title>
 </head>
 <body>
 <div class="wrapper">
@@ -21,11 +21,13 @@
             <div class="elem-group">
                 <select id="destination-selection" name="destination_preference" required>
                     <option value="" disabled selected>Select a destination</option>
-                    <option value="oslo">Oslo</option>
                     <option value="ålesund">Ålesund</option>
+                    <option value="abu dhabi">Abu Dhabi</option>
+                    <option value="amsterdam">Amsterdam</option>
+                    <option value="rome">Rome</option>
+                    <option value="paris">Paris</option>
                     <option value="bergen">Bergen</option>
-                    <option value="trondheim">Trondheim</option>
-                    <option value="tromsø">Tromsø</option>
+                    <option value="oslo">Oslo</option>
                 </select>
             </div>
             <div class="elem-group">
@@ -74,9 +76,12 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
 <script src="script.js"></script>
+<script src="authentication.js"></script>
+<script src="navigation.js"></script>
 <script>
 
     window.onload = function() {
+
         // Fetch hotels data from the backend
         fetch('http://localhost:8080/hotels')
             .then(response => response.json())
