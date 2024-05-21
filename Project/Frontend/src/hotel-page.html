@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hotel name</title>
+    <title>Hotel</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -61,7 +61,7 @@
             pricesDiv.id = 'hotel-prices';
             hotel.prices.forEach(price => {
                 var priceButton = document.createElement('button');
-                priceButton.textContent = price.source + ': $' + price.amount;
+                priceButton.textContent = price.source + ': ' + price.amount +' kr';
                 priceButton.className = 'price-button'; // Add a class to style the buttons
                 pricesDiv.appendChild(priceButton);
             });
@@ -151,6 +151,7 @@
             default:
                 return 'fa-question'; // Default icon for unknown features
         }
+
     }
 </script>
 <script src="https://kit.fontawesome.com/753e2a5a55.js" crossorigin="anonymous"></script>

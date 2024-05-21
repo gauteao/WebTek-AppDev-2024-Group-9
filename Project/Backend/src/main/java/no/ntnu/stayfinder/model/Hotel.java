@@ -1,9 +1,28 @@
 package no.ntnu.stayfinder.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+/*
+    * Represents a hotel
+    @param id The hotel's unique identifier
+    @param name The hotel's name
+    @param address The hotel's address
+    @param city The hotel's city
+    @param country The hotel's country
+    @param maxGuests The maximum number of guests the hotel can accommodate
+    @param isHidden Whether the hotel is hidden from the public
+    @param roomTypes The types of rooms the hotel offers
+    @param extraFeatures The extra features the hotel offers
+    @param availableDates The dates the hotel is available
+    @param establishedYear The year the hotel was established
+    @param locationType The type of location the hotel is in
+    @param prices The prices of the hotel
+ */
+
+@Schema(description = "Represents a hotel")
 @Entity
 public class Hotel {
     @Id

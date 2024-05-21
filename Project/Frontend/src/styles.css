@@ -320,6 +320,7 @@ p {
 
 .hotel-result {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 20px;
     background-color: #fff;
@@ -538,7 +539,7 @@ a {
 .login-form input[type="password"] {
     font-family: 'Nanum Gothic', sans-serif; /* Adjust font family here */
     font-style: normal; /* Adjust font style here */
-    /* Add any other desired styles */
+    font-weight: 400;
 }
 
 .dropdown-content form {

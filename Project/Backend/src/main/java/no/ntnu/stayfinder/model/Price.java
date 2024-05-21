@@ -1,8 +1,17 @@
 package no.ntnu.stayfinder.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
+/*
+* Represents a price
+* @param Id The price's unique identifier
+* @param source The source of the price
+* @param amount The amount of the price
+* @param hotel The hotel the price is for
+ */
+@Schema(description = "Represents a price")
 @Entity
 public class Price {
     @Id

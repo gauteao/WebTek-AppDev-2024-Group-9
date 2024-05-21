@@ -12,8 +12,12 @@
     <header>
         <div id="navbar"></div>
     </header>
-    <h1>Hotel Results</h1>
-    <div class="hotel-container" id="hotel-container"></div>
+    <br>
+    <h1 style="text-align: center">Results</h1>
+    <div id="hotel-results">
+        <div class="hotel-container" id="hotel-container"></div>
+    </div>
+
 </div>
 <footer>
     <div id="main-footer"></div>
@@ -33,36 +37,45 @@
     // Display hotels
     hotels.forEach(function (hotel, index) {
         // Create hotel element
-        var hotelElement = document.createElement('div');
-        hotelElement.classList.add('hotel');
+        const hotelDiv = document.createElement('div');
+        hotelDiv.classList.add('hotel');
 
         // Create image element
-        var img = document.createElement('img');
-        img.src = `images/hotel${index + 1}.avif`; // Adjust the image source as needed
+        const img = document.createElement('img');
+        img.src = `images/hotel${index + 1}/1.avif`; // assuming you have hotel1.avif, hotel2.avif, etc. in your images directory
         img.alt = hotel.name;
-        img.classList.add('hotel-image');
+        img.className = 'hotel-image';
 
         // Create heading element
         var h3 = document.createElement('h3');
         h3.textContent = hotel.name;
 
+
         // Create location paragraph element
         var locationP = document.createElement('p');
         locationP.textContent = `${hotel.city}, ${hotel.country}`;
 
-        // Create price paragraph element
-        var priceP = document.createElement('p');
-        priceP.textContent = `Starting at $${hotel.price} per night`;
+        // Calculate the minimum price
+        var minPrice = Math.min(...hotel.prices.map(price => price.amount));
+
+        const priceP = document.createElement('p');
+        priceP.textContent = `Starting at ${minPrice} kr per night`;
 
         // Append elements to hotel element
-        hotelElement.appendChild(img);
-        hotelElement.appendChild(h3);
-        hotelElement.appendChild(locationP);
-        hotelElement.appendChild(priceP);
+        hotelDiv.appendChild(img);
+        hotelDiv.appendChild(h3);
+        hotelDiv.appendChild(locationP);
+        hotelDiv.appendChild(priceP);
 
         // Append hotel element to hotel container
-        hotelContainer.appendChild(hotelElement);
+        hotelContainer.appendChild(hotelDiv);
+        hotelDiv.addEventListener('click', function() {
+            // Redirect to hotel page with hotel id as query parameter
+            window.location.href = `hotel-page.html?hotelId=${hotel.id}`;
+        });
     });
+
+
 
         // Initialize the commonOnLoad function
         commonOnLoad();

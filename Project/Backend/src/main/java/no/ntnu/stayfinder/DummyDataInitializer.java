@@ -1,24 +1,81 @@
-package no.ntnu.stayfinder.config;
+package no.ntnu.stayfinder;
 
 import no.ntnu.stayfinder.model.Hotel;
 import no.ntnu.stayfinder.model.Price;
+import no.ntnu.stayfinder.model.Role;
+import no.ntnu.stayfinder.model.User;
 import no.ntnu.stayfinder.repository.HotelRepository;
 import no.ntnu.stayfinder.repository.PriceRepository;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import no.ntnu.stayfinder.repository.RoleRepository;
+import no.ntnu.stayfinder.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.ApplicationListener;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Optional;
 
-@Configuration
-public class HotelConfig {
+@Component
+public class DummyDataInitializer implements ApplicationListener<ApplicationReadyEvent> {
 
-    @Bean
-    CommandLineRunner commandLineRunner(HotelRepository hotelRepository, PriceRepository priceRepository) {
-        return args -> {
-            // Andante Hotel
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
+
+    @Autowired
+    private HotelRepository hotelRepository;
+
+    @Autowired
+    private PriceRepository priceRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    private final Logger logger = LoggerFactory.getLogger("DummyInit");
+
+    @Override
+    public void onApplicationEvent(ApplicationReadyEvent event) {
+        Optional<User> existingChuckUser = userRepository.findByUsername("chuck");
+        if (existingChuckUser.isEmpty()) {
+            logger.info("Importing test data...");
+            User chuck = new User(
+                    null,
+                    "Chuck",
+                    "Norris",
+                    "chuck",
+                    "chuck@example.com",
+                    passwordEncoder.encode("Nunchucks2024"),
+                    true
+            );
+
+            User dave = new User(
+                    null,
+                    "Dave",
+                    "Doe",
+                    "dave",
+                    "dave@example.com",
+                    passwordEncoder.encode("Dangerous2024"),
+                    true
+            );
+
+            Role user = new Role("ROLE_USER");
+            Role admin = new Role("ROLE_ADMIN");
+            chuck.addRole(admin);
+            dave.addRole(user);
+
+            roleRepository.save(user);
+            roleRepository.save(admin);
+
+            userRepository.save(chuck);
+            userRepository.save(dave);
+
             Hotel hotel1 = new Hotel(
                     1L,
                     "Andante Hotel",
@@ -430,6 +487,12 @@ public class HotelConfig {
 
             // Save the Hotel object again
             hotelRepository.save(hotel12);
-        };
+
+
+            logger.info("DONE importing test data");
+        }
+        else {
+            logger.info("Users already in the database, not importing anything");
+        }
     }
 }

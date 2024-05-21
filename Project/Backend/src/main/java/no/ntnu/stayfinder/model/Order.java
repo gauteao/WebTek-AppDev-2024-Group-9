@@ -1,9 +1,24 @@
 package no.ntnu.stayfinder.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
+/*
+    * Represents an order
+    *
+    * @param id The order's unique identifier
+    * @param userId The user's unique identifier
+    * @param hotelId The hotel's unique identifier
+    * @param checkIn The check-in date
+    * @param checkOut The check-out date
+    * @param guests The number of guests
+    * @param price The price of the order
+    * @param orderDate The date of the order
+ */
+
+@Schema(description = "Represents an order")
 @Entity
 @Table(name = "orders")
 public class Order {
