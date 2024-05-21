@@ -67,7 +67,7 @@ public class SecurityConfig {
         return new WebMvcConfigurer() {
         @Override
         public void addCorsMappings(CorsRegistry registry) {
-            registry.addMapping("/**").allowedOrigins("https://664cb99fa21c0400a9cd15cd--jazzy-taiyaki-d8ca14.netlify.app/").allowedMethods("GET", "POST", "PUT", "DELETE")
+            registry.addMapping("/**").allowedOrigins("https://jazzy-taiyaki-d8ca14.netlify.app/").allowedMethods("GET", "POST", "PUT", "DELETE")
                     .allowedHeaders("*")
                     .allowCredentials(true);
         }
