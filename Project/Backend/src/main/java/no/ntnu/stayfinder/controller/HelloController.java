@@ -22,12 +22,11 @@ public class HelloController {
      *
      * @return The body to be returned in the HTTP response
      */
-    @GetMapping("/")
+    @GetMapping("/home")
     @Operation(summary = "Home page",
             description = "Returns a welcome message")
     public String home() {
-        /*return "This is a public home page";*/
-        return "forward:/index.html";
+        return "This is a public home page";
     }
 
     /**
