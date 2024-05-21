@@ -1,3 +1,4 @@
+/*
 package no.ntnu.stayfinder.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -17,16 +18,20 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 import java.util.List;
 
+*/
 /**
  * A simple REST API controller providing different endpoints.
- */
+ *//*
+
 @RestController
 public class HelloController {
-    /**
+    */
+/**
      * Handle HTTP GET / request.
      *
      * @return The body to be returned in the HTTP response
-     */
+     *//*
+
     @GetMapping("/home")
     @Operation(summary = "Home page",
             description = "Returns a welcome message")
@@ -42,11 +47,13 @@ public class HelloController {
                 .body(resource);
     }
 
-    /**
+    */
+/**
      * Handle HTTP GET /user request.
      *
      * @return The body to be returned in the HTTP response
-     */
+     *//*
+
     @GetMapping("user")
     @Operation(summary = "User page",
             description = "Returns a message for authenticated users")
@@ -54,11 +61,13 @@ public class HelloController {
         return "You are currently logged in as " + loggedInUser.getUsername();
     }
 
-    /**
+    */
+/**
      * Handle HTTP GET /admin request.
      *
      * @return The body to be returned in the HTTP response
-     */
+     *//*
+
     @GetMapping("admin")
     @Operation(summary = "Admin page",
             description = "Returns a message for authenticated users with admin role")
@@ -77,4 +86,4 @@ public class HelloController {
     private static List<String> getRoles(Authentication auth) {
         return auth.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList();
     }
-}
+}*/
