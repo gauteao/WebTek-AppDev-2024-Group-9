@@ -26,7 +26,8 @@ public class HelloController {
     @Operation(summary = "Home page",
             description = "Returns a welcome message")
     public String home() {
-        return "This is a public home page";
+        /*return "This is a public home page";*/
+        return "forward:/index.html";
     }
 
     /**
