@@ -13,7 +13,7 @@ profileSaveButton.onclick = function (event) {
     const username = getCookie("current_username");
     emailElement.disabled = true;
     profileSaveButton.disabled = true;
-    sendApiRequest("PUT", "users" + username, profileSaveSuccess, profileData, profileSaveError);
+    sendApiRequest("PUT", "/users/" + username, profileSaveSuccess, profileData, profileSaveError);
 }
 
 /**
@@ -25,7 +25,7 @@ function loadProfileData() {
     profileSaveButton.disabled = true;
     const user = getAuthenticatedUser();
     if (user) {
-        sendApiRequest("GET", "users/" + user.username, showProfileData);
+        sendApiRequest("GET", "/users/" + user.username, showProfileData);
     } else {
         redirectTo("/no-access.html");
     }

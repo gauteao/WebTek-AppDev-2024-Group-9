@@ -83,7 +83,7 @@
     window.onload = function() {
 
         // Fetch hotels data from the backend
-        fetch('http://localhost:8080/api/hotels')
+        fetch('http://localhost:8080/hotels')
             .then(response => response.json())
             .then(hotels => {
                 const hotelContainer = document.querySelector('.hotel-container');
