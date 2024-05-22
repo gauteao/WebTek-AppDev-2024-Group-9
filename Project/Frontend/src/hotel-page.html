@@ -60,10 +60,10 @@
             var pricesDiv = document.createElement('div');
             pricesDiv.id = 'hotel-prices';
             hotel.prices.forEach(price => {
-                var priceButton = document.createElement('button');
+                var priceButton = document.createElement('a'); // Create an 'a' element
                 priceButton.textContent = price.source + ': ' + price.amount +' kr';
-                priceButton.href = price.url;
-                priceButton.target = '_blank';
+                priceButton.href = price.url; // Set the href attribute to the URL of the provider's webpage
+                priceButton.target = '_blank'; // Open the link in a new tab
                 priceButton.className = 'price-button'; // Add a class to style the buttons
                 pricesDiv.appendChild(priceButton);
             });
