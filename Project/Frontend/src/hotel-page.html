@@ -62,6 +62,8 @@
             hotel.prices.forEach(price => {
                 var priceButton = document.createElement('button');
                 priceButton.textContent = price.source + ': ' + price.amount +' kr';
+                priceButton.href = price.url;
+                priceButton.target = '_blank';
                 priceButton.className = 'price-button'; // Add a class to style the buttons
                 pricesDiv.appendChild(priceButton);
             });

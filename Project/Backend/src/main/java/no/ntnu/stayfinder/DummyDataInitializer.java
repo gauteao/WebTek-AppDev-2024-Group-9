@@ -96,8 +96,8 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             hotel1 = hotelRepository.save(hotel1);
 
             // Create Price objects
-            Price price1 = new Price("Booking.com", 150, hotel1);
-            Price price2 = new Price("Agoda", 200, hotel1);
+            Price price1 = new Price("Booking.com", 150, "https://www.booking.com/hotel/es/andante.no.html",  hotel1);
+            Price price2 = new Price("Agoda", 200, "https://www.agoda.com/andante-hotel/hotel/barcelona-es.html", hotel1);
 
             // Save the Price objects
             priceRepository.save(price1);
@@ -130,8 +130,8 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             hotel2 = hotelRepository.save(hotel2);
 
             // Create Price objects
-            Price price3 = new Price("Booking.com", 250, hotel2);
-            Price price4 = new Price("Agoda", 300, hotel2);
+            Price price3 = new Price("Momondo.com", 250, "https://www.momondo.no/hotell/alesund/Thon-Hotel-Aalesund.mhd86367.ksp", hotel2);
+            Price price4 = new Price("Agoda", 300, "https://www.agoda.com/thon-hotel-baronen/hotel/alesund-no.html?cid=1844104&ds=mTuTVjz3QtQlMofO", hotel2);
 
             // Save the Price objects
             priceRepository.save(price3);
@@ -164,8 +164,8 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             hotel3 = hotelRepository.save(hotel3);
 
             // Create Price objects
-            Price price5 = new Price("Airbnb", 1100, hotel3);
-            Price price6 = new Price("Agoda", 1500, hotel3);
+            Price price5 = new Price("Airbnb", 1100, "https://www.airbnb.no/", hotel3);
+            Price price6 = new Price("Agoda", 1500, "https://www.agoda.com/scandic-parken/hotel/alesund-no.html", hotel3);
 
             // Save the Price objects
             priceRepository.save(price5);
@@ -198,8 +198,8 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             hotel4 = hotelRepository.save(hotel4);
 
             // Create Price objects
-            Price price7 = new Price("Agoda.com", 3400, hotel4);
-            Price price8 = new Price("Agoda", 8100, hotel4);
+            Price price7 = new Price("Agoda.com", 3400, "https://www.agoda.com/carlton-tower-hotel/hotel/dubai-ae.html?cid=1844104", hotel4);
+            Price price8 = new Price("Agoda", 8100, "https://www.booking.com/hotel/ae/carlton-tower.no.html" ,hotel4);
 
             // Save the Price objects
             priceRepository.save(price7);
@@ -232,8 +232,8 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             hotel5 = hotelRepository.save(hotel5);
 
             // Create Price objects
-            Price price9 = new Price("Kayak", 2100, hotel5);
-            Price price10 = new Price("Booking.com", 2800, hotel5);
+            Price price9 = new Price("Kayak", 2100, "https://www.kayak.no/Hoteller-i-Amsterdam-Swissotel-Amsterdam.33040.ksp" ,hotel5);
+            Price price10 = new Price("Booking.com", 2800, "https://www.booking.com/hotel/nl/swissotel.nl.html" ,hotel5);
 
             // Save the Price objects
             priceRepository.save(price9);
@@ -266,9 +266,9 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             hotel6 = hotelRepository.save(hotel6);
 
             // Create Price objects
-            Price price11 = new Price("Hotel.com", 1200, hotel6);
-            Price price12 = new Price("Agoda", 2500, hotel6);
-            Price price13 = new Price("Expedia", 2800, hotel6);
+            Price price11 = new Price("Hotel.com", 1200, "https://no.hotels.com/ho2322753984/hotel-homs-roma-italia/" ,hotel6);
+            Price price12 = new Price("Agoda", 2500, "https://www.agoda.com/homs-sweet-home/hotel/rome-it.html?cid=1844104&ds=wgd0mOpJiCsTXICd" ,hotel6);
+            Price price13 = new Price("Expedia", 2800, "https://www.expedia.com/Rome-Hotels-Hotel-Homs.h72554812.Hotel-Information" ,hotel6);
 
             // Save the Price objects
             priceRepository.save(price11);
@@ -284,17 +284,17 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             // Hotel 7
             Hotel hotel7 = new Hotel(
                     7L,
-                    "Hotel Ritz",
-                    "Place Vendôme 7",
-                    "Paris",
-                    "France",
+                    "Radisson Blu Atlantic Hotel",
+                    "Rue de Rivoli 7",
+                    "Stavanger",
+                    "Norway",
                     5,
                     false,
-                    Arrays.asList("Standard", "Junior Suite", "Suite"),
-                    Arrays.asList("Mini Bar", "Private Terrace", "Babysitting Service"),
-                    Arrays.asList(LocalDate.of(2024, 11, 15), LocalDate.of(2024, 11, 20)),
+                    Arrays.asList("Standard", "Business Class", "Suite"),
+                    Arrays.asList("Complimentary Super Breakfast Buffet", "Sky Bar", "EV Charging"),
+                    Arrays.asList(LocalDate.of(2024, 9, 10), LocalDate.of(2024, 9, 15)),
                     1898, // Established year
-                    "City Center", // Location type
+                    "City Center with Lake View", // Location type
                     null // Prices will be added separately
             );
 
@@ -302,8 +302,8 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             hotel7 = hotelRepository.save(hotel7);
 
             // Create Price objects
-            Price price14 = new Price("Hotel.com", 1200, hotel7);
-            Price price15 = new Price("Agoda", 2500, hotel7);
+            Price price14 = new Price("Hotel.com", 1200, "https://no.hotels.com/ho123650/radisson-blu-atlantic-hotel-stavanger-stavanger-norge/",hotel7);
+            Price price15 = new Price("Booking.com", 2500, "https://www.booking.com/hotel/no/radisson-blu-atlantic-stavanger.no.html" ,hotel7);
 
             // Save the Price objects
             priceRepository.save(price14);
@@ -318,15 +318,15 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             // Hotel 8
             Hotel hotel8 = new Hotel(
                     8L,
-                    "Hotel de Crillon",
+                    "Clarion Hotel The Hub",
                     "Place de la Concorde 8",
-                    "Paris",
-                    "France",
+                    "Oslo",
+                    "Norway",
                     5,
                     false,
-                    Arrays.asList("Standard", "Junior Suite", "Suite"),
-                    Arrays.asList("Mini Bar", "Private Terrace", "Babysitting Service"),
-                    Arrays.asList(LocalDate.of(2024, 12, 15), LocalDate.of(2024, 12, 20)),
+                    Arrays.asList("Moderate", "Standard", "Superior"),
+                    Arrays.asList("Rooftop Bar", "Organic Breakfast", "Eco-Friendly"),
+                    Arrays.asList(LocalDate.of(2024, 7, 5), LocalDate.of(2024, 7, 12)),
                     1909, // Established year
                     "City Center", // Location type
                     null // Prices will be added separately
@@ -336,8 +336,8 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             hotel8 = hotelRepository.save(hotel8);
 
             // Create Price objects
-            Price price16 = new Price("Hotel.com", 1200, hotel8);
-            Price price17 = new Price("Agoda", 2500, hotel8);
+            Price price16 = new Price("Nordic Choice Hotels", 1200, "https://www.choicehotels.com/en-uk/norway/oslo/clarion-hotels/no036" ,hotel8);
+            Price price17 = new Price("Expedia", 2500, "https://www.expedia.no/Oslo-Hoteller-Clarion-Hotel-The-Hub.h26621.Hotellinformasjon" ,hotel8);
 
             // Save the Price objects
             priceRepository.save(price16);
@@ -370,8 +370,8 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             hotel9 = hotelRepository.save(hotel9);
 
             // Create Price objects
-            Price price18 = new Price("TripAdvisor", 1200, hotel9);
-            Price price19 = new Price("Hotels.com", 1250, hotel9);
+            Price price18 = new Price("TripAdvisor", 1200, "https://no.tripadvisor.com/Hotel_Review-g190502-d248500-Reviews-Grand_Hotel_Terminus-Bergen_Hordaland_Western_Norway.html" ,hotel9);
+            Price price19 = new Price("Hotels.com", 1250, "https://no.hotels.com/ho123203/grand-hotel-terminus-bergen-norge/" ,hotel9);
 
             // Save the Price objects
             priceRepository.save(price18);
@@ -405,8 +405,8 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             hotel10 = hotelRepository.save(hotel10);
 
             // Create Price objects
-            Price price20 = new Price("The Thief Website", 2300, hotel10);
-            Price price21 = new Price("Agoda", 2500, hotel10);
+            Price price20 = new Price("The Thief Website", 2300, "https://thethief.com/" ,hotel10);
+            Price price21 = new Price("Agoda", 2500, "https://www.agoda.com/the-thief-hotel/hotel/oslo-no.html?cid=1844104&ds=g3088XtPKOoItML6" ,hotel10);
 
             // Save the Price objects
             priceRepository.save(price20);
@@ -439,8 +439,8 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             hotel11 = hotelRepository.save(hotel11);
 
             // Create Price objects
-            Price price22 = new Price("Booking.com", 1600, hotel11);
-            Price price23 = new Price("Expedia", 1700, hotel11);
+            Price price22 = new Price("Booking.com", 1600, "https://www.booking.com/hotel/no/bristol.no.html" ,hotel11);
+            Price price23 = new Price("Expedia", 1700, "https://www.expedia.no/Oslo-Hoteller-Hotel-Bristol.h12364.Hotellinformasjon" ,hotel11);
 
             // Save the Price objects
             priceRepository.save(price22);
@@ -473,9 +473,9 @@ public class DummyDataInitializer implements ApplicationListener<ApplicationRead
             hotel12 = hotelRepository.save(hotel12);
 
             // Create Price objects
-            Price price24 = new Price("Marina Bay Sands Website", 4000, hotel12);
-            Price price25 = new Price("Trip.com", 4500, hotel12);
-            Price price26 = new Price("Hotels.com", 4000, hotel12);
+            Price price24 = new Price("Marina Bay Sands Website", 4000, "https://www.marinabaysands.com/" ,hotel12);
+            Price price25 = new Price("Trip.com", 4500, "https://www.trip.com/hotels/singapore-hotel-detail-687592/marina-bay-sands-singapore/" ,hotel12);
+            Price price26 = new Price("Hotels.com", 4000, "https://no.hotels.com/ho339486/marina-bay-sands-singapore-singapore/" ,hotel12);
 
             // Save the Price objects
             priceRepository.save(price24);

@@ -19,6 +19,7 @@ public class Price {
     private Long Id;
     private String source;
     private int amount;
+    private String url;
 
     @ManyToOne
     @JoinColumn(name = "hotel_id")
@@ -27,9 +28,10 @@ public class Price {
     public Price() {
     }
 
-    public Price(String source, int amount, Hotel hotel) {
+    public Price(String source, int amount, String url,Hotel hotel) {
         this.source = source;
         this.amount = amount;
+        this.url = url;
         this.hotel = hotel;
     }
 
@@ -43,6 +45,10 @@ public class Price {
 
     public int getAmount() {
         return amount;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
     @JsonIgnore
