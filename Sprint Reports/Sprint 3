@@ -1,0 +1,26 @@
+Sprint report 3, 18-04-2024
+
+It has been a while since last meeting, because of other projects.
+
+We have integrated a Spring application as out backend, implemented user authentication with Spring Security. Finalized some designs in Figma
+and have come further in implementing the functionality we want using HTML, CSS ans JS.
+
+1. Backend
+- Implemented a spring application to serve as out backend application.
+- Established communication between the backend, frontend and MySQL database.
+Gaute and Herman collaborated ont the backend tasks, such as learning Spring Boot, user authentication and frontend-backend communication.
+
+2. Frontend
+- Completed designs using Figma, made improvements on the design in project.
+- Begin implementing frontend functionality using HTML, CSS and JS.
+- Introduced JS for dynamic features, such as fetching data from the backend via API endpoints.
+
+3. User authentication
+- Gaute and Herman worked together to implement user authentication features.
+
+4. Functionality
+- Added a functional search feature for hotels, making it possible for user to find available hotels based on their search.
+- Implemented backend logic for backend + frontend communication.
+
+Herman has been focusing mainly on the frontend, while Gaute has been focusing on the backend.
+This is so that we a start on the backend and Herman will be looped in.
