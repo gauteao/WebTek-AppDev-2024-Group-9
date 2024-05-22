@@ -38,15 +38,6 @@ public class HelloController {
         return "This is a public home page";
     }
 
-    @GetMapping("/index")
-    public ResponseEntity<Resource> serveIndexHtml() throws IOException {
-        Resource resource = new ClassPathResource("Project/Frontend/src/index.html");
-        return ResponseEntity.ok()
-                .contentType(MediaType.TEXT_HTML)
-                .body(resource);
-    }
-
-
 /**
      * Handle HTTP GET /user request.
      *
