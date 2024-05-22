@@ -22,16 +22,15 @@ public class User{
     private Boolean locked = locked = false;
     private Boolean enabled = false;
     @Enumerated(EnumType.STRING)
-    private AppUserRole appUserRole;
-
+    private Role role;
     public User(Long id, String firstName, String lastName, String email,
-                String password, AppUserRole appUserRole) {
+                String password, Role role) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.appUserRole = appUserRole;
+        this.role = role;
     }
 
     public User() {
