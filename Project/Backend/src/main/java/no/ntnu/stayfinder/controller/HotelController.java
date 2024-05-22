@@ -17,7 +17,7 @@ import java.util.List;
     * REST API controller serving endpoints for hotels.
  */
 @RestController
-@RequestMapping(path = "/api/hotels")
+@RequestMapping(path = "/hotels")
 @CrossOrigin(origins = "*")
 public class HotelController {
 
