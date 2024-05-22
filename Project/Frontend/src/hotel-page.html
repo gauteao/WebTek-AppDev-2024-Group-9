@@ -60,12 +60,16 @@
             var pricesDiv = document.createElement('div');
             pricesDiv.id = 'hotel-prices';
             hotel.prices.forEach(price => {
-                var priceButton = document.createElement('a'); // Create an 'a' element
+                var priceLink = document.createElement('a'); // Create an 'a' element
+                priceLink.href = price.url; // Set the href attribute to the URL of the provider's webpage
+                priceLink.target = '_blank'; // Open the link in a new tab
+
+                var priceButton = document.createElement('button'); // Create a 'button' element
                 priceButton.textContent = price.source + ': ' + price.amount +' kr';
-                priceButton.href = price.url; // Set the href attribute to the URL of the provider's webpage
-                priceButton.target = '_blank'; // Open the link in a new tab
                 priceButton.className = 'price-button'; // Add a class to style the buttons
-                pricesDiv.appendChild(priceButton);
+
+                priceLink.appendChild(priceButton); // Append the button to the link
+                pricesDiv.appendChild(priceLink); // Append the link to the pricesDiv
             });
             document.querySelector('.hotel-page-info').insertBefore(pricesDiv, document.querySelector('.about-section'));
 
@@ -127,6 +131,7 @@
             case "Meeting Rooms":
                 return 'fa-users';
             case "EV Charging Stations":
+            case "EVCharging":
                 return 'fa-charging-station';
             case "Bicycle Rental":
                 return 'fa-bicycle';
@@ -149,6 +154,14 @@
                 return 'fa-paint-brush';
             case "Heritage Building":
                 return 'fa-landmark';
+            case "Complimentary Super Breakfast Buffet":
+            case "Organic Breakfast":
+                return 'fa-bread-slice';
+            case "Sky Bar":
+            case "Rooftop Bar":
+                return 'fa-glass-cocktail';
+            case "Eco-Friendly":
+                return 'fa-leaf';
 
             default:
                 return 'fa-question'; // Default icon for unknown features
