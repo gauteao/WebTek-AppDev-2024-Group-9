@@ -1,0 +1,328 @@
+{
+	"info": {
+		"_postman_id": "779ab9cc-9c6e-4aab-9a8d-2abc918f7176",
+		"name": "Hotels",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35120754",
+		"_collection_link": "https://warped-trinity-284148.postman.co/workspace/WebTek-AppDev-2024-Group-9~2f120882-f7d9-47d9-bb1d-932abd0568d4/collection/32852865-779ab9cc-9c6e-4aab-9a8d-2abc918f7176?action=share&source=collection_link&creator=35120754"
+	},
+	"item": [
+		{
+			"name": "Get Hotels",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array');",
+							"});",
+							"",
+							"pm.test(\"Optional properties are present if defined\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    jsonData.forEach(function (hotel) {",
+							"        if (hotel.hasOwnProperty('location')) {",
+							"            pm.expect(hotel).to.have.property('location');",
+							"        }",
+							"    });",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/hotels",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hotels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Hotel Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an object\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('object');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/hotels/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hotels",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Nonexisting Hotel",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response has correct error message\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('message');",
+							"    pm.expect(jsonData.message).to.include('Hotel not found with id');",
+							"    pm.expect(jsonData).to.have.property('status', 404);",
+							"    pm.expect(jsonData).to.have.property('error', 'Not Found');",
+							"    pm.expect(jsonData).to.have.property('path').that.includes('/hotels/');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/hotels/999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hotels",
+						"999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Hotel",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Hotel added\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Sample Hotel\",\n    \"address\": \"123 Sample Street\",\n    \"city\": \"Sample City\",\n    \"country\": \"Sample Country\",\n    \"rating\": 4.5\n    \n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/hotels",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hotels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Hotel",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response should be empty or contain a success message\", function () {",
+							"    let response = pm.response.json();",
+							"    pm.expect(response).to.be.an('object').that.is.empty; ",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/hotels/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hotels",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"",
+					"pm.test(\"Response is an array\", function () {",
+					"    var jsonData = pm.response.json();",
+					"    pm.expect(jsonData).to.be.an('array');",
+					"});",
+					"",
+					"pm.test(\"Optional properties are present if defined\", function () {",
+					"    var jsonData = pm.response.json();",
+					"    jsonData.forEach(function (hotel) {",
+					"        if (hotel.hasOwnProperty('location')) {",
+					"            pm.expect(hotel).to.have.property('location');",
+					"        }",
+					"    });",
+					"});",
+					"",
+					"pm.test(\"Response is an object\", function () {",
+					"    var jsonData = pm.response.json();",
+					"    pm.expect(jsonData).to.be.an('object');",
+					"});",
+					"",
+					"pm.test(\"Response has correct error message\", function () {",
+					"    var jsonData = pm.response.json();",
+					"    pm.expect(jsonData).to.have.property('message');",
+					"    pm.expect(jsonData.message).to.include('Hotel not found with id');",
+					"    pm.expect(jsonData).to.have.property('status', 404);",
+					"    pm.expect(jsonData).to.have.property('error', 'Not Found');",
+					"    pm.expect(jsonData).to.have.property('path').that.includes('/hotels/');",
+					"});",
+					"",
+					"pm.test(\"Hotel added\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"",
+					"pm.test(\"Response should be empty or contain a success message\", function () {",
+					"    let response = pm.response.json();",
+					"    pm.expect(response).to.be.an('object').that.is.empty; // Adjust this according to your API's response on successful deletion",
+					"});",
+					""
+				]
+			}
+		}
+	]
+}
