@@ -45,7 +45,7 @@
     var hotelId = urlParams.get('hotelId');
 
     // Fetch the hotel data from the backend
-    fetch('http://localhost:8080/hotels/' + hotelId)
+    fetch('api/hotels/' + hotelId)
         .then(response => response.json())
         .then(hotel => {
             // Use the hotel data to populate the HTML elements on the page

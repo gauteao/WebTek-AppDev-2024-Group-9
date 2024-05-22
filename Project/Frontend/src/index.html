@@ -83,7 +83,7 @@
     window.onload = function() {
 
         // Fetch hotels data from the backend
-        fetch('http://localhost:8080/hotels')
+        fetch('api/hotels')
             .then(response => response.json())
             .then(hotels => {
                 const hotelContainer = document.querySelector('.hotel-container');
@@ -154,7 +154,7 @@
 
             // Make an AJAX request to the backend endpoint
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://localhost:8080/hotels/search?city=' + encodeURIComponent(cityPreference) +
+            xhr.open('GET', 'api/hotels/search?city=' + encodeURIComponent(cityPreference) +
                 '&checkIn=' + encodeURIComponent(checkinDate) +
                 '&checkOut=' + encodeURIComponent(checkoutDate) +
                 '&guests=' + encodeURIComponent(totalGuests));
