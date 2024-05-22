@@ -20,7 +20,7 @@ To run the application on your computer:
 The .env file should contain the following:
 ```
 DB_DRIVER=com.mysql.cj.jdbc.Driver
-DB_URL=jdbc:mysql://localhost:3306/stayfinder
+DB_URL=jdbc:mysql://localhost:3306/ + "YourDatabaseName"
 DB_USERNAME= "YourUsername"
 DB_PASSWORD= "YourPassword"
 JWT_SECRET_KEY= "TheSecretKey"
