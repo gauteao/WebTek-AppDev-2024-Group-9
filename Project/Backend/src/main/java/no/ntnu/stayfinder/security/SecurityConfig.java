@@ -45,7 +45,7 @@ public class SecurityConfig {
                 // All routes starting with /user require USER role
                 .authorizeHttpRequests((auth) ->
                         auth.requestMatchers("/users/**").hasAnyRole("ADMIN", "USER"))
-                .authorizeHttpRequests((auth) -> auth.requestMatchers("/hotels/**", "/api/**").permitAll())
+                .authorizeHttpRequests((auth) -> auth.requestMatchers("/hotels/**").permitAll())
                 .authorizeHttpRequests((auth) -> auth.requestMatchers("/api/authenticate").permitAll())
                 // The default URL / is accessible to everyone
                 .authorizeHttpRequests((auth) -> auth.requestMatchers("/", "/index.html","/home", "/static/**", "/css/**", "/js/**", "/images/**", "/WebTek-AppDev-2024-Group-9/Project/Frontend/src/**").permitAll())
